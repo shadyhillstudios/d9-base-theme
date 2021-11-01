@@ -1,0 +1,31 @@
+d9_base_theme.mobile:
+  label: 'Mobile'
+  mediaQuery: '(min-width: 0px)'
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+
+d9_base_theme.tablet:
+  label: 'Tablet'
+  mediaQuery: 'all and (min-width: 568px) and (max-width: 768px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+
+d9_base_theme.laptop:
+  label: 'Laptop'
+  mediaQuery: 'all and (min-width: 769px) and (max-width: 992)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+
+d9_base_theme.desktop:
+  label: 'Desktop'
+  mediaQuery: 'all and (min-width: 993px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x

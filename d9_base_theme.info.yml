@@ -1,0 +1,9 @@
+name: Drupal 9 Base Theme
+description: Base theme for Drupal 9
+type: theme
+core: 8.x
+screenshot: shs-logo.png
+
+libraries:
+  - d9_base_theme/bootstrap-cdn
+  - d9_base_theme/fonts
