@@ -462,6 +462,7 @@
         position: relative;
         min-width: calc(50% - 1rem);
         margin-right: 1rem;
+        align-self: normal !important;
         &:last-child {
             margin-right: 0;
         }
