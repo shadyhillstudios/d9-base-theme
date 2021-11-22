@@ -1,0 +1,30 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+<div {{ attributes.addClass(classes) }}>
+    {% if content.field_header|render|trim is not empty %}
+        <div class="row">
+            <div class="col">
+                <h3 class="h2">{{ content.field_header }}</h3>
+            </div>
+        </div>
+    {% endif %}
+  <div class="row">
+      <div class="col">
+        {% set value = content.field_wysiwyg|render|replace({'&amp;nbsp;': ' '}) %}
+        {% set wysiwyg = {
+          '#type' : 'processed_text',
+          '#text' : value,
+          '#format' : 'basic_html'
+           } %}
+       {{ wysiwyg }}
+      </div>
+  </div>
+</div>
+{% endblock paragraph %}

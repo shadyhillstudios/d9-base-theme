@@ -1,0 +1,36 @@
+{% for item in items %}
+  {% if item.shs_extra is not empty %}
+    {# check if this is a paragraph #}
+    {% if item.shs_extra['#isParagraph'] %}
+      {{ drupal_entity('paragraphs_library_item', item.shs_extra['#pId']) }}
+    {% elseif item.shs_extra['#path'] is not empty %}
+      <a href="{{ item.shs_extra['#path'] }}{% if item.shs_extra['#file'] %}?{{ "now"|date('U') }}{% endif %}" {% if item.shs_extra['#external'] %} target="_blank" {% endif %}>
+        <span class="element-invisible">{{ item.shs_extra['#label'] }}</span>
+        {{ item.shs_extra['#title'] }}
+        {% if item.shs_extra['#external'] %}
+              {% if item.shs_extra['#file'] %}
+                  <i class="fas fa-arrow-down" role="presentation"></i>
+              {% else %}
+                  <i class="fas fa-external-link-alt" role="presentation"></i>
+          {% endif %}
+        {% else %}
+          <i class="fas fa-arrow-right" role="presentation"></i>
+        {% endif %}
+      </a>
+    {% endif %}
+  {% else %}
+    {% if item.content['#url'].external %}
+        <a href="{{ item.content['#url'].uri }}" {% if item.content['#url'].external %}target="_blank"{% endif %}>
+            {{ item.content['#title'] }}
+        </a>
+    {% else %}
+        {% if item.content['#url'].routeName == 'entity.node.canonical' %}
+            <a href={{ path('entity.node.canonical', {'node': item.content['#url'].routeParameters['node']})}}>
+                {{ item.content['#title'] }}
+            </a>
+        {% endif %}
+    {% endif %}
+    
+    
+  {% endif %}
+{% endfor %}

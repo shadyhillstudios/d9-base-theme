@@ -1,0 +1,36 @@
+{%
+  set classes = [
+    'tile',
+    'paragraph',
+    'paragraph-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% set parent = paragraph._referringItem.parent.parent.entity %}
+{# {% set layoutStyle = parent.field_layout_style|render|striptags('<drupal-render-placeholder>')|trim %} #}
+{% block paragraph %}
+<div {{ attributes.addClass(classes) }}>
+  <div class="wrapper">
+    <div class="h2">
+      {% if parent.field_layout_style.value|trim == 'anchored' %}
+        {% if content.field_link['#items'] is not empty %}
+          {% set link = link('test', content.field_link['#items'][0].uri) %}
+          <a href="{{ link['#url'] }}" {% if content.field_link['#items'][0].options.external %} target="_blank" {% endif %}>
+            {{ content.field_title}}
+            <i class="fas fa-arrow-right" role="presentation"></i>
+          </a>
+        {% endif %}
+      {% else %}
+        {{ content.field_title }}
+      {% endif %}
+    </div>
+    <div class="summary">
+      {{ content.field_restricted_html }}
+    </div>
+    {% if parent.field_layout_style.value|trim != 'anchored' %}
+      {{ content.field_link }}
+    {% endif %}
+  </div>
+</div>
+{% endblock paragraph %}

@@ -1,0 +1,22 @@
+{%
+  set classes = [
+    'paragraph-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'bg-image-' ~ content.field_media_image['#items'][0].target_id
+  ]
+%}
+{% block paragraph %}
+    <div {{ attributes.addClass(classes) }}>
+      {{ content.field_media_image }}
+      <h2>
+        {{ content.field_header }}
+      </h2>
+      {% if content.field_link|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+        {% set link = link('test', content.field_link['#items'][0].uri) %}
+        <a href="{{ link['#url'] }}">
+          <i class="fas fa-arrow-right" role="presentation"></i>
+        </a>
+      {% endif %}
+    </div>
+{% endblock %}

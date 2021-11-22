@@ -1,0 +1,88 @@
+.footer-upper {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background: black;
+    position: relative;
+    margin-bottom: -1px;
+    // .curve-mask {
+    //     position: absolute;
+    //     top: -1px;
+    //     left: -1px;
+    //     min-height: 40px;
+    //     height: 2.5vw;
+    //     width: calc(100% + 2px);
+    //     background-image: url('../imgs/necasc-curve-01.svg');
+    //     background-repeat: no-repeat;
+    //     background-size: cover;
+    //     z-index: 5;
+    //     -moz-transform: scaleY(-1);
+    //     -o-transform: scaleY(-1);
+    //     -webkit-transform: scaleY(-1);
+    //     transform: scaleY(-1);
+    //     filter: FlipV;
+    //     -ms-filter: "FlipV";
+    // }
+}
+
+// #block-footernecasclogofield {
+//     img {
+//         mix-blend-mode: screen;
+//         // filter: invert(1);
+//         opacity: 1;
+//         &:hover {
+//             opacity: .7;
+//             cursor: pointer;
+//         }
+//     }
+//     .image-link {
+//         flex: 1 1 auto;
+//         padding: 1rem;
+//         margin: 2rem .25rem 1rem .25rem;
+//         @include respond-to('desktop') {
+//             flex-basis: 15%;
+//         }
+//         @include respond-to('tablet') {
+//             flex-basis: 50%;
+//             margin: 0;
+//         }
+//     }
+// }
+
+// .footer-necasc {
+//     margin-top: 2rem;
+//     border-top: 1px solid #CCC;
+//     padding-top: 2rem;
+//     color: white;
+//     .col {
+//         padding: 0;
+//         .logo {
+//             display: block;
+//             background-image: url('../imgs/necasc-logo-footer-01.svg');
+//             background-repeat: no-repeat;
+//             background-size: contain;
+//             width: 240px;
+//             height: 90px;
+//         }
+//         &:last-child {
+//             text-align: right;
+//             a {
+//                 color: white;
+//                 &:hover {
+//                     text-decoration: underline;
+//                     color: white;
+//                 }
+//             }  
+//         }
+//         @include respond-to('tablet') {
+//             padding: 0 15px;
+//             flex: 1 1 auto;
+//             &:last-child {
+//                 text-align: center;
+//             }
+//             .logo {
+//                 margin: 0 auto;
+//             }
+//         }
+//     }
+// }

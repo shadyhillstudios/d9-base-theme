@@ -1,0 +1,66 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    content.field_media_image['#items'] ? 'bg-image-' ~ content.field_media_image['#items'][0].target_id,
+    'color-theme-' ~ content.field_color_theme|render|striptags('<drupal-render-placeholder>')|trim
+  ]
+%}
+{% set parent = paragraph._referringItem.parent.parent.entity %}
+{% if content.field_media_image|render is not empty %}
+  {% block paragraph %}
+  <div {{ attributes.addClass(classes) }}>
+    <div class="row align-items-end">
+      {{ content.field_media_image }}
+      <div class="col">
+        <div class="wrapper">
+          <h1>
+            {% if content.field_display_title.value is not empty %}
+              {{ content.field_display_title.value }}
+            {% else %}
+              {{ parent.title.value }}
+            {% endif %}
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock paragraph %}
+{% endif %}
+
+{# {% set bgImage = content.field_media_image['#items'][0].target_id ? 'bg-image-' ~ content.field_media_image['#items'][0].target_id : 'no-image' %}
+{% set parent = paragraph._referringItem.parent.parent.entity %}
+
+<div class="paragraph--type--page-header">
+  <div class="row page-header {{ bgImage }}">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 header-wrapper">
+            <h1>
+              <span>
+                {% if parent.field_display_title.value is not empty %}
+                  {{ parent.field_display_title.value }}
+                {% else %}
+                  {{ parent.label }}
+                {% endif %}
+              </span>
+            </h1>
+          </div>
+        </div>
+      </div>
+      {{ content.field_media_image }}
+  </div>
+
+  {% if content.field_header|render|striptags('<drupal-render-placeholder>')|trim is not empty or content.field_restricted_html|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+    <div class="container header-content">
+      <div class="row">
+        <div class="col content-wrapper">
+          <h2>{{ content.field_header|render|striptags('<drupal-render-placeholder>')|trim }}</h2>
+          <div>{{ content.field_restricted_html|render|striptags('<drupal-render-placeholder>')|trim }}</div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div> #}

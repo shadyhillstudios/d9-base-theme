@@ -1,0 +1,28 @@
+{%
+  set classes = [
+    'container',
+    'paragraph',
+    'paragraph-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+<div {{ attributes.addClass(classes) }}>
+  <div class="row">
+    {% block content %}
+      <div class="col-md-6">
+        <div class="wrapper">
+          <h2>{{ content.field_title }}</h2>
+          {{ content.field_restricted_html }}
+        </div>
+      </div>
+      <div class="col-md-6 link-group">
+        <div class="col-count-{{ content.field_link_columns[0] }}">
+          {{ content.field_links }}
+        </div>
+      </div>        
+    {% endblock %}
+  </div>
+</div>
+{% endblock paragraph %}

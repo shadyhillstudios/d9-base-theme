@@ -1,0 +1,36 @@
+{%
+  set classes = [
+    'container',
+    'paragraph',
+    'paragraph-' ~ paragraph.bundle|clean_class,
+    content.field_alignment|render|striptags('<drupal-render-placeholder>')|trim == 'left' ? 'text-block-left',
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+<div {{ attributes.addClass(classes) }}>
+    <div class="row">
+      {% block content %}
+        <div class="col-6">
+          <div class="wrapper">
+            {{ content.field_media_image }}
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="wrapper">
+            {% if title|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+              <h2>{{ title }}</h2>
+            {% elseif content.field_header|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+              <h2>{{ content.field_header }}</h2>
+            {% endif %}
+            <div class="details">
+              {{ content.field_restricted_html }}
+              {{ content.field_link }}            
+            </div>
+          </div>
+        </div>        
+      {% endblock %}
+    </div>
+  </div>
+{% endblock paragraph %}

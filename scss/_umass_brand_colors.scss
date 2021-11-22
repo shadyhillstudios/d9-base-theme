@@ -1,0 +1,50 @@
+// Primary Colors:
+$maroon: #881c1c;
+$black:  black;
+$white:  white;
+
+// Secondary Colors:
+$pms-7504: #94795d;
+$pms-7503: #a89968;
+$cool-gray-10: #63666a;
+$warm-gray-5: #aca39a;
+$pms-1245: #c69214;
+$pms-471: #b86125;
+$pms-1675: #a8431e;
+$pms-5793: #b3b995;
+$pms-7496: #76881d;
+$pms-302: #003b5c; 
+$pms-5415: #5b7f95;
+$pms-7458: #71b2c9;
+$pms-490: #5d2a2c; 
+$pms-7449: #41273b; 
+
+// Accent Colors
+$gray-1: #333;
+$gray-2: #666;
+$gray-3: #999;
+$gray-4: #aaa;
+$gray-5: #ccc;
+$offwhite: #eee;
+$offwhite-trans: rgba(238,238,238,.85);
+
+$tan-1: #beb395;
+$tan-2: #dbd3ba;
+$tan-3: #ece9d4;
+
+$color-profiles: (
+    'maroon': $maroon $white,
+    'pms-7504': $pms-7504 $white,
+    'cool-gray-10': $cool-gray-10 $white,
+    'warm-gray-5': $warm-gray-5 $black,
+    'pms-1245': $pms-1245 $white,
+    'pms-471': $pms-471 $white,
+    'pms-1675': $pms-1675 $white,
+    'pms-5793': $pms-5793 $black,
+    'pms-7496': $pms-7496 $white,
+    'pms-302': $pms-302 $white,
+    'pms-5415': $pms-5415 $white,
+    'pms-7458': $pms-7458 $white,
+    'pms-490': $pms-490 $white,
+    'pms-7449': $pms-7449 $white
+);

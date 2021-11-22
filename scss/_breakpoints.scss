@@ -1,0 +1,71 @@
+// Using this file instead of installing another module to manage. These should match the theme file
+
+// Element size after nesting
+// $row_xl: 1220px;
+// $row_lg: 920px;
+// $row_md: 810px;
+// $row_sm: 600px;
+// $colgap: 10px;
+
+// container overrides, breakpoint - 18 to allow for scroll
+// $container_xl: 1410px;
+// $container_lg: 1110px;
+// $container_md: 920px;
+// $container_sm: 720px;
+
+// breakpoints reverse engineered to even #s from slide scroller
+$breakpoints: (
+    'mobile': 567px,
+    'tablet': 738px,
+    'laptop': 938px,
+    'desktop': 1128px,
+    'large': 1428px
+) !default;
+
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to-max($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin respond-to-min($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+// ** Requires js libs be included in theme
+// https://www.npmjs.com/package/css-element-queries
+// Individual elements can be given a breakpoint based on their container
+// available space instead of the window.
+// @mixin el-respond-to-max($elSize) {
+//   &[max-width~="#{$elSize}"] {
+//     @content;
+//   }
+// }
+
+// @mixin el-respond-to-min($elSize) {
+//   &[min-width~="#{$elSize}"] {
+//     @content;
+//   }
+// }

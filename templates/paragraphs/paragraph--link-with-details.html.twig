@@ -1,0 +1,34 @@
+{% set parent = paragraph._referringItem.parent.parent.entity %}
+{% set parentBundle = parent.bundle %}
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+
+{% block paragraph %}
+<div {{ attributes.addClass(classes) }}>
+    <div class="wrapper">
+      <div class="content-details">
+        <div class="header">
+          {{ content.field_link }}
+        </div>
+        <div class="description">
+          {{ content.field_restricted_html }}
+        </div>
+      </div>
+      <div class="link-btn">
+        {% set link = link('test', content.field_link['#items'][0].uri) %}
+        <a href="{{ link['#url'] }}" class="btn" {% if content.field_link['#items'][0].options.external %} target="_blank" {% endif %}>
+          Read More
+          {% if content.field_link['#items'][0].options.external %}
+            <i class="fas fa-external-link-alt" role="presentation"></i>
+          {% endif %}
+        </a>
+      </div>
+    </div>
+</div>
+{% endblock paragraph %}

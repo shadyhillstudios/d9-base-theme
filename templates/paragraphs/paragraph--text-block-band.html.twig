@@ -1,0 +1,26 @@
+{% block paragraph %}
+  {%
+    set classes = [
+      'container',
+      'paragraph',
+      'paragraph-' ~ paragraph.bundle|clean_class,
+      view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+      content.field_layout_style|render|striptags('<drupal-render-placeholder>')|trim,
+      not paragraph.isPublished() ? 'paragraph--unpublished'
+    ]
+  %}
+  <div {{ attributes.addClass(classes) }}>
+    {% if content.title|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+      <div class="row row-header">
+        <div class="col">
+            <h3 class="h5">{{ content.title }}</h3>
+        </div>
+      </div>
+    {% endif %}
+    {% if content.field_layout_style|render|striptags('<drupal-render-placeholder>')|trim == 'anchored' %}
+      <div class="anchor-base"></div>
+    {% endif %}
+    {{ content.field_paragraph_bands }}
+    
+  </div>
+{% endblock paragraph %}

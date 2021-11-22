@@ -1,0 +1,16 @@
+{
+  "name": "d9-base-theme",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-livereload": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "watch": "gulp watch"
+  }
+}
