@@ -157,8 +157,8 @@
 }
 
 @mixin overFlowLarge {
-    width: calc(100% + 100px);
-    margin-left: -50px;
+    width: calc(100% + 200px) !important;
+    margin-left: -100px;
 }
 
 @mixin bgGradient($color1, $color2, $degree: 90deg) {

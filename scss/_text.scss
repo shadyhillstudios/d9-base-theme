@@ -1,5 +1,6 @@
 h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
-  font-family: 'Montserrat', sans-serif;
+  // font-family: 'Montserrat', sans-serif;
+  font-family: 'Lora';
   font-weight: 600;
   color: $gray-2;
   text-decoration: none;
@@ -14,9 +15,11 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 h1, .h1{
   font-size: 2.857rem;
   line-height: 1.2;
+  color: $maroon;
 }
 
 h2, .h2{
+  font-family: 'Lora';
   font-size: 2.286rem;
   line-height: 1.1875;
   color: black;

@@ -1,6 +1,3 @@
-{% if content.field_paragraph_band|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-    {{ content.field_paragraph_band }}
-{% endif %}
 <div{{ attributes.addClass('container') }}>
     <div class="row">
         <div class="col">
@@ -8,6 +5,8 @@
                 <h1>
                   {{ node.label }}
                 </h1>
+            {% else %}
+                {{ content.field_paragraph_band }}
             {% endif %}
             <div class="content">
                 {{ content.field_paragraph_bands }}

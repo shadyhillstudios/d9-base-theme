@@ -1,0 +1,25 @@
+<div{{ attributes }}>
+    <div class="row">
+      <div class="col">
+        {{ drupal_block('system_breadcrumb_block') }}
+      </div>
+    </div>
+    <div class="row justify-content-center has-sidebar standard-page">
+        {% if content.field_paragraph_sidebar|render is not empty or sidebar is not empty %}
+            <div class="sidebar">
+                {{ content.field_paragraph_sidebar }}
+                {{ sidebar }}
+            </div>
+        {% endif %}
+        <div class="col main-content">
+            <h1>
+                {% if content.field_display_title|render|trim is not empty %}
+                    {{ content.field_display_title }}
+                {% else %}
+                    {{ node.label }}
+                {% endif %}
+            </h1>
+            {{ content.field_paragraph_bands }}
+        </div>              
+    </div>
+</div>

@@ -1,0 +1,49 @@
+{% set contentType = content.field_content_type|field_value[0]['#markup'] %}
+
+{% set activeFilters = [] %}
+{% set filters = '' %}
+
+{% set filterArray = [
+    'field_profile_types',
+    'field_faculty_tags',
+    'field_faculty_filters',
+    'field_staff_tags',
+    'field_staff_filters',
+    'field_student_tags',
+    'field_student_filters',
+    'field_population_types',
+    'field_resource_types',
+    'field_resource_tags',
+    'field_academic_departments',
+    'field_event_type',
+    'field_event_categories',
+    'field_event_tags',
+    'field_gallery_tags',
+    'field_news_categories',
+    'field_news_type',
+    'field_news_tags',
+    'field_blog_type',
+    'field_spire_availability',
+    'field_spire_class_type',
+    'field_spire_course_career',
+    'field_spire_mode',
+    'field_spire_programs',
+    'field_spire_term'
+] %}
+
+{% for filterItem in filterArray %}
+    {% if content[filterItem]['#items'] is not empty %}
+        {% for idx in range(0, content[filterItem]['#items']|length - 1) %}
+            {% set filterVar = filterItem|replace({'field_': ''}) %}
+            {% set activeFilters = activeFilters|merge([filterVar ~ '~' ~ content[filterItem][idx]['#title']]) %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+
+{% if activeFilters is not empty %}
+  {% set filters = activeFilters|join(',') %}
+{% endif %}
+
+<div id="filtered-content-node" content-type="{{contentType}}" preset-filters="{{filters}}" url-prefix="{{urlPrefix}}">
+    {{ content|without('field_content_type', 'field_display_title', filterArray) }}
+</div>

@@ -42,6 +42,37 @@ img {
   @include baseButton;
 }
 
+.container {
+  @include respond-to-min('mobile') {
+    // background: rgba(100,100,0,.1);
+    width: 100%;
+    max-width: 100%;
+  }
+  @include respond-to-min('tablet') {
+    // background: rgba(0,100,100,.1);
+    width: $container_sm;
+    max-width: $container_sm;
+  }
+  @include respond-to-min('laptop') {
+    // background: rgba(100,0,0,.1);
+    width: $container_md;
+    max-width: $container_md;
+  }
+  @include respond-to-min('desktop') {
+    // background: rgba(0,100,0,.1);
+    width: $container_lg;
+    max-width: $container_lg;
+  }
+  @include respond-to-min('large') {
+    // background: rgba(0,0,100,.1);
+    width: $container_xl;
+    max-width: $container_xl;
+  }
+  .container {
+    width: 100%;
+  }
+}
+
 .btn-blue {
   @include baseButton;
   color: white;
@@ -189,11 +220,11 @@ img {
   }
 }
 
-.site-header {
-  .container {
-    max-width: 1200px;
-  }
-}
+// .site-header {
+//   .container {
+//     max-width: 1200px;
+//   }
+// }
 
 // Specific Color Theme Overrides
 div[class^="color-theme-"], div[class*=" color-theme-"] {
@@ -273,7 +304,10 @@ div[class^="color-theme-"], div[class*=" color-theme-"] {
 }
 
 .content {
-  padding: 0 30px;
+  padding: 0 70px;
+  .container {
+    padding: 0 35px;
+  }
   @include respond-to-max('tablet') {
     padding: 0 15px;
   }
@@ -627,6 +661,12 @@ div[class^="color-theme-"], div[class*=" color-theme-"] {
   }
 }
 
+.pub-date {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: $gray-1;
+}
+
 .search-item {
   margin: .5rem 0;
   padding: .5rem 0;
@@ -648,6 +688,7 @@ div[class^="color-theme-"], div[class*=" color-theme-"] {
   .pub-date {
     font-weight: 600;
     margin-bottom: 1rem;
+    color: $gray-1 !important;
   }
   .details {
     .wrapper {

@@ -1,0 +1,44 @@
+<div class="layout-container">
+
+  {% include directory ~ '/../../custom/d9_base_theme/templates/partials/header.html.twig' %}
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    <div class="layout-content container">
+      <div class="row">
+        <div class="col">
+          {{ drupal_block('system_breadcrumb_block') }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+            <h1>
+                {% set display_title = drupal_field('field_display_title', 'node', node.id) %}
+                {% if display_title|render|trim is not empty %}
+                    {{ display_title }}
+                {% else %}
+                    {{ node.label }}
+                {% endif %}
+            </h1>
+        </div>
+      </div>
+      <div class="row has-sidebar">
+        <div class="sidebar">
+            {{ page.sidebar }}
+        </div>
+        <div class="col main-content">
+            {{ page.content }}
+        </div>            
+      </div>
+   
+    </div>{# /.layout-content #}
+  </main>
+  {% if page.footer_upper %}
+    <div class="footer-upper">
+      {{ page.footer_upper }}
+    </div>
+  {% endif %}
+  {% include directory ~ '/../../custom/d9_base_theme/templates/partials/footer.html.twig' %}
+
+</div>{# /.layout-container #}

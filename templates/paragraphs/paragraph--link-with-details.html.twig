@@ -1,5 +1,5 @@
-{% set parent = paragraph._referringItem.parent.parent.entity %}
-{% set parentBundle = parent.bundle %}
+{# {% set parent = paragraph._referringItem.parent.parent.entity %}
+{% set parentBundle = parent.bundle %} #}
 
 {%
   set classes = [
@@ -9,22 +9,64 @@
   ]
 %}
 
+{# set the variables so we know what we're desling with #}
+{% set is_external = content.field_link[0]['#options'].external or false %}
+{% set title = content.field_link['#items'][0].title %}
+{% set link = link('test', content.field_link['#items'][0].uri) %}
+{% set details = content.field_restricted_html %}
+
+{% if not is_external %}
+  {# set some empty values #}
+  {% set node_display_title = '' %}
+  {% set node_title = '' %}
+  {% set node_summary = '' %}
+  {# try to get the node #}
+  {% set node_value = content.field_link['#items'][0].uri | preg_replace('|entity:node\/|', '') %}
+  
+  {# set the node field values #}
+  {% if node_value is not empty %}
+    {% set node_display_title = drupal_field('field_display_title', 'node', node_value) %}
+    {% set node_title = drupal_field('title', 'node', node_value) %}
+    {% set node_summary = drupal_field('field_restricted_html', 'node', node_value) %}
+  {% endif %}
+  {# check the title #}
+  {% if title|render|striptags('<drupal-render-placeholder>') is empty %}
+    {# check for display title and then node title #}
+    {% if node_display_title|render|trim is not empty %}
+      {% set title = node_display_title %}
+    {% elseif node_title|render|trim is not empty %}
+      {% set title = node_title %}
+    {% endif %}
+  {% endif %}
+  {# while we are here, check if details is empty and if the summary exists on the node #}
+  {% if details|render|trim is empty %}
+    {% if node_summary|render|trim is not empty %}
+      {% set details = node_summary %}
+    {% endif %}
+  {% endif %}
+{% else %}
+  {% if title|render|striptags('<drupal-render-placeholder>') is empty %}
+    {% set title = link['#url'] %}
+  {% endif %}
+{% endif %}
+
 {% block paragraph %}
 <div {{ attributes.addClass(classes) }}>
     <div class="wrapper">
       <div class="content-details">
         <div class="header">
-          {{ content.field_link }}
+          <a href="{{ link['#url'] }}" {% if is_external %} target="_blank" {% endif %}>
+            {{ title}}
+          </a>
         </div>
         <div class="description">
-          {{ content.field_restricted_html }}
+          {{ details }}
         </div>
       </div>
       <div class="link-btn">
-        {% set link = link('test', content.field_link['#items'][0].uri) %}
-        <a href="{{ link['#url'] }}" class="btn" {% if content.field_link['#items'][0].options.external %} target="_blank" {% endif %}>
+        <a href="{{ link['#url'] }}" class="btn" {% if is_external %} target="_blank" {% endif %}>
           Read More
-          {% if content.field_link['#items'][0].options.external %}
+          {% if is_external %}
             <i class="fas fa-external-link-alt" role="presentation"></i>
           {% endif %}
         </a>

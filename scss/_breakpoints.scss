@@ -8,10 +8,10 @@
 // $colgap: 10px;
 
 // container overrides, breakpoint - 18 to allow for scroll
-// $container_xl: 1410px;
-// $container_lg: 1110px;
-// $container_md: 920px;
-// $container_sm: 720px;
+$container_xl: 1410px;
+$container_lg: 1110px;
+$container_md: 920px;
+$container_sm: 720px;
 
 // breakpoints reverse engineered to even #s from slide scroller
 $breakpoints: (

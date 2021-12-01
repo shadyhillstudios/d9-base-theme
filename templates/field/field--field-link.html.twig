@@ -1,0 +1,13 @@
+{% for item in items %}
+  {% if item.content['#url'].external %}
+        <a href="{{ item.content['#url'].uri }}" {% if item.content['#url'].external %}target="_blank"{% endif %}>
+            {{ item.content['#title'] }}
+        </a>
+    {% else %}
+        {% if item.content['#url'].routeName == 'entity.node.canonical' %}
+            <a href={{ path('entity.node.canonical', {'node': item.content['#url'].routeParameters['node']})}}>
+                {{ item.content['#title'] }}
+            </a>
+        {% endif %}
+    {% endif %}
+{% endfor %}

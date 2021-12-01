@@ -1,0 +1,68 @@
+{%
+  set classes = [
+    'container',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set parent = paragraph._referringItem.parent.parent.entity %}
+
+{% set tagsArray = [] %}
+{% set tags = 'all' %}
+
+{# {% for t in content.field_news_type['#items'] %}
+    {% if t.target_id|render|trim is not empty %}
+        {% set tagsArray = tagsArray|merge([t.target_id|render|trim]) %}
+    {% endif %}
+{% endfor %}
+
+{% for t in content.field_science_tags['#items'] %}
+    {% if t.target_id|render|trim is not empty %}
+        {% set tagsArray = tagsArray|merge([t.target_id|render|trim]) %}
+    {% endif %}
+{% endfor %}
+
+{% for t in content.field_science_themes['#items'] %}
+    {% if t.target_id|render|trim is not empty %}
+        {% set tagsArray = tagsArray|merge([t.target_id|render|trim]) %}
+    {% endif %}
+{% endfor %}
+
+{% for t in content.field_partners['#items'] %}
+    {% if t.target_id|render|trim is not empty %}
+        {% set tagsArray = tagsArray|merge([t.target_id|render|trim]) %}
+    {% endif %}
+{% endfor %} #}
+
+{% if tagsArray is not empty %}
+  {% set tags = tagsArray|join(',') %}
+{% endif %}
+
+{% set header = 'Related Announcements' %}
+{% if content.field_title|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+  {% set header = content.field_title %}
+{% endif %}
+
+{% block paragraph %}
+  <div {{ attributes.addClass(classes) }}>
+      {% block content %}
+        {% set results = drupal_view_result('announcements', 'announcement_block', parent.nid.value, tags)|length %}
+        {% if results > 0 %}
+          <div class="row row-header">
+            <div class="col d-flex justify-content-between">
+              <h3 class="h5">{{ header }}</h3>
+              {{ content.field_link }}
+            </div>
+          </div>
+          <div class="paragraph-related-announcement-band anchored">
+            <div class="anchor-base"></div>
+              {{ drupal_view('announcements', 'announcement_block', parent.nid.value, tags) }}
+            </div>
+          </div>
+        {% endif %}
+      {% endblock %}
+  </div>
+{% endblock paragraph %}

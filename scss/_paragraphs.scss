@@ -41,8 +41,10 @@
   // margin-bottom: 100px;
   margin-bottom: 50px;
   position: relative;
+  // @include overFlowLarge();
+  width: calc(100% + 100px) !important;
+  margin-left: -30px;
   .row{
-    @include overFlowLarge;
     min-height: 420px;
     h1{
       background: white;
@@ -61,10 +63,11 @@
 .paragraph-image-with-text {
     &.inset-text {
         @include paraMargins();
+        @include overFlowLarge();
+        background-position: center center !important;
+        background-size: cover;
+        background-repeat: no-repeat;
         .row {
-            width: calc(100% + 300px);
-            margin-left: -150px;
-            background-position: center center !important;
             justify-content: flex-end;
             .col-6 {
                 // position: absolute;
@@ -109,9 +112,6 @@
             }
         }
     }
-}
-
-.paragraph-image-with-text {
     &.side-by-side {
         .row {
             .col-6 {
@@ -223,18 +223,27 @@
     }
 }
 
+.paragraph-related-announcement-band,
 .paragraph-text-block-band {
     @include paraMargins();
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     position: relative;
+    .related-news-block,
     .paragraph-block-header-text-link {
         margin-bottom: 2rem;
         display: flex;
         z-index: 2;
         // max-width: 33.33333%;
-        flex-basis: 1 1 33.33333%;
-        margin: 1rem;
+        flex: 1 1 0;
+        margin: 1rem .5rem;
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
         .wrapper {
             padding: 2rem 2rem 3rem 2rem;
             width: 100%;
@@ -266,6 +275,7 @@
         }
     }
     &.border-top {
+        .related-news-block,
         .paragraph-block-header-text-link {
             .wrapper {
                 &:before {
@@ -275,7 +285,15 @@
         }
     }
     &.anchored {
+        .views-element-container {
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+        .related-news-block,
         .paragraph-block-header-text-link {
+            position: relative;
+            z-index: 2;
             .wrapper {
                 padding-top: 0;
                 background: white;
@@ -297,6 +315,7 @@
             width: 100%;
             height: 100px;
             margin-top: -50px;
+            z-index: 1;
         }
 
     }
@@ -308,8 +327,9 @@
     &:before{
         content: '';
         display: block;
-        width: calc(100% + 100px);
-        margin-left: -50px;
+        // width: 100%;
+        width: calc(100% + 70px);
+        margin-left: -35px;
         border-top: 14px solid $maroon;
         margin-bottom: 4rem;
         @include respond-to-max('mobile') {
@@ -435,6 +455,9 @@
                 .link-btn {
                     .btn {
                         font-size: 1em;
+                        i, svg {
+                            display: inline-block;
+                        }
                     }        
                 }
             }
@@ -495,8 +518,6 @@
         }
     }
 }
-
-// TEMPALTE STYLES BELOW --- ######################
 
 .paragraph-accordion {
     margin-bottom: 4rem;
@@ -594,6 +615,139 @@
         }
     }
 }
+
+.a11y-paragraphs-tabs__wrapper {
+    @include respond-to-max('mobile') {
+        padding: 0;
+    }
+    h2 {
+        p {
+            margin-bottom: 0;
+        }
+    }
+    .paragraph--type--wysiwyg {
+        padding: 0 15px;
+    }
+    div[class^="paragraph--"], div[class*=" paragraph--"] {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding: 0;
+    }
+    .paragraph-link-band-w-text {
+        &:before {
+            display: none;
+        }
+        &:after{
+            content: '';
+            display: block;
+            width: 100%;
+            border-top: 4px solid $maroon;
+            margin-top: 2rem;
+        }
+    }
+    .tabs-tab-list {
+        a {
+            font-weight: 600;
+            color: black;
+        }
+
+        li {
+            padding: 0 5px;
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+    .accordeon-trigger {
+        color: black;
+        i, svg {
+            display: none;
+        }
+    }
+    @include respond-to-max('mobile') {
+        .accordion-tabs {
+            // background-color: #fafafa;
+        }
+        .accordeon-trigger {
+            border-top:  thin solid #ccc;
+            background: none;
+            padding-left: 0;
+            padding-right: 0;
+            i, svg {
+                display: block;
+                margin-left: 2em;
+                -moz-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+            }
+        }
+        .accordeon-trigger[aria-expanded="true"] {
+            background-color: #fff;
+            color: $maroon;
+            i, svg {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    
+    .tabs-trigger {
+        border-bottom: 5px solid transparent;
+        margin-right: 10px;
+        margin-left: 0;
+        padding: 10px 0;
+        &.is-selected {
+            border-bottom: 5px solid $maroon;
+            color: $maroon;
+            background-color: transparent;
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                color: $maroon;
+                border-bottom: 5px solid $maroon;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            color: $maroon;
+            border-bottom: 5px solid $maroon;
+        }
+    }
+
+    .paragraph-link-band-w-text {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-top: 0;
+    }
+}
+
+.paragraph--announcement-band {
+    @include paraMargins(3rem);
+    @include respond-to-max('laptop') {
+        @include paraMargins(1rem);
+    }
+    .row-header {
+        .h5 {
+            color: black;
+        }
+        a {
+            @include baseButton();
+            color: black;
+            font-weight: 600;
+            svg, i {
+                display: inline;
+            }
+            border: 1px solid;
+        }
+    }
+}
+
+// TEMPALTE STYLES BELOW --- ######################
+
+
 
 // COMMENTED OUT
 .paragraph-highlight-band {

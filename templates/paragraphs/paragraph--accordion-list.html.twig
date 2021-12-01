@@ -1,0 +1,36 @@
+{%
+  set classes = [
+    'paragraph-accordion',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+<div {{ attributes.addClass(classes) }}>
+  {% if content.field_title|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+        <div class="row">
+            <div class="col">
+                <h3 class="h2">{{ content.field_title }}</h3>
+            </div>
+        </div>
+    {% endif %}
+    {% if content.field_restricted_html|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+        <div class="row">
+            <div class="col">
+                {{ content.field_restricted_html }}
+            </div>
+        </div>
+    {% endif %}
+  <div class="row">
+    {% block content %}
+    <div class="col-12 accordion-group"  data-allow-multiple>
+      {{ content.field_accordion_items }}
+    </div>      
+    {% endblock %}
+  </div>
+</div>
+{% endblock paragraph %}
+
+{{ attach_library('d9_base_theme/accordion') }}

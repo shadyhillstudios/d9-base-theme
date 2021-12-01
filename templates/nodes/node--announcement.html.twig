@@ -1,0 +1,60 @@
+{# Need to cache bust this page to get dynamic view data #}
+{{ {'#cache': {'max-age': 0}} }}
+
+{% set tagsArray = [] %}
+{% set tags = 'all' %}
+
+{# {% for t in node.field_science_tags.value %}
+    {% if t.target_id|render|trim is not empty %}
+        {% set tagsArray = tagsArray|merge([t.target_id|render|trim]) %}
+    {% endif %}
+{% endfor %}
+
+{% for t in node.field_science_themes.value %}
+    {% if t.target_id|render|trim is not empty %}
+        {% set tagsArray = tagsArray|merge([t.target_id|render|trim]) %}
+    {% endif %}
+{% endfor %}
+
+{% if tagsArray is not empty %}
+  {% set tags = tagsArray|join(',') %}
+{% endif %} #}
+
+<div{{ attributes }}>
+    <div class="row">
+      <div class="col">
+        {# {{ drupal_block('system_breadcrumb_block') }} #}
+      </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col main-content">
+            <h1>
+                {% if content.field_display_title|render|trim is not empty %}
+                    {{ content.field_display_title }}
+                {% else %}
+                    {{ node.label }}
+                {% endif %}
+            </h1>
+            <div class="h3 pub-date">
+                {% if node.published_at.value is not empty %}
+                    {{ node.published_at.value|date('l, F j, Y') }}
+                {% else %}
+                    {{ node.getCreatedTime|date("l, F j, Y") }}
+                {% endif %}
+            </div>
+            {{ content.field_paragraph_bands }}
+            {% set results = drupal_view_result('announcements', 'announcement_block', node.nid.value, tags)|length %}
+            {% if results > 0 %}
+                <div class="row row-header">
+                    <div class="col">
+                      <h3 class="h5">Related Articles</h3>
+                    </div>
+                </div>
+                <div class="paragraph-related-announcement-band anchored">
+                    <div class="anchor-base"></div>
+                    {{ drupal_view('announcements', 'announcement_block', node.nid.value, tags) }}
+                </div>
+            {% endif %}
+        </div>    
+    </div>
+</div>
