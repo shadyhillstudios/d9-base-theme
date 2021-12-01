@@ -18,8 +18,10 @@
       <div class="col">
         <div class="wrapper">
           <h1>
-            {% if content.field_display_title.value is not empty %}
-              {{ content.field_display_title.value }}
+            {% if content.field_header|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+              {{ content.field_header }}
+            {% elseif parent.field_display_title.value is not empty %}
+              {{ parent.field_display_title.value }}
             {% else %}
               {{ parent.title.value }}
             {% endif %}
