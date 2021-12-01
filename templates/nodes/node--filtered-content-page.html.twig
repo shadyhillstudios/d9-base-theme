@@ -44,6 +44,6 @@
   {% set filters = activeFilters|join(',') %}
 {% endif %}
 
-<div id="filtered-content-node" content-type="{{contentType}}" preset-filters="{{filters}}" url-prefix="{{urlPrefix}}">
+<div id="filtered-content-node" content-type="{{contentType|lower}}" preset-filters="{{filters}}" url-prefix="{{urlPrefix}}">
     {{ content|without('field_content_type', 'field_display_title', filterArray) }}
 </div>
