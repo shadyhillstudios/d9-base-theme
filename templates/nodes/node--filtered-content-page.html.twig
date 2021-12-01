@@ -35,7 +35,7 @@
     {% if content[filterItem]['#items'] is not empty %}
         {% for idx in range(0, content[filterItem]['#items']|length - 1) %}
             {% set filterVar = filterItem|replace({'field_': ''}) %}
-            {% set activeFilters = activeFilters|merge([filterVar ~ '~' ~ content[filterItem][idx]['#title']]) %}
+            {% set activeFilters = activeFilters|merge([filterVar ~ '~' ~ content[filterItem][idx]['#plain_text']]) %}
         {% endfor %}
     {% endif %}
 {% endfor %}
