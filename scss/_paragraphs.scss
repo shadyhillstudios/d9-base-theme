@@ -35,33 +35,42 @@
             }
         }
     }
+    margin-bottom: 1rem;
 }
 
 .paragraph-page-header {
-  // margin-bottom: 100px;
-  margin-bottom: 50px;
-  position: relative;
-  // @include overFlowLarge();
-  width: calc(100% + 100px) !important;
-  margin-left: -30px;
-  background-position: center center !important;
-  background-size: cover;
-  background-repeat: no-repeat;
-  .row{
-    min-height: 420px;
-    h1{
-      background: white;
-      padding: 45px 45px 0 45px;
-      margin-bottom: 0;
-      color: $maroon;
-      font-family: 'Lora';
+    margin-bottom: 50px;
+    .img-holder {
+        position: relative;
+        width: calc(100% + 100px) !important;
+        margin-left: -30px;
+        background-position: center center !important;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 420px;
+        z-index: 1;
     }
-    .col {
-      margin: 0 100px;
-      padding: 0;
+    .title-wrapper{
+        margin: -64px 100px 0 100px;
+        padding: 0;
+        z-index: 2;
+        position: relative;
+        &.long-text {
+            margin-top: -55px;
+            h1 {
+                font-size: 2.25rem;
+            }
+        }
+        h1{
+          background: white;
+          padding: 25px 45px 0 45px;
+          margin-bottom: 0;
+          color: $maroon;
+          font-family: 'Lora';
+        }
     }
-  }
 }
+
 
 .paragraph-image-with-text {
     &.inset-text {
@@ -239,6 +248,7 @@
         display: flex;
         z-index: 2;
         // max-width: 33.33333%;
+        align-self: normal;
         flex: 1 1 0;
         margin: 1rem .5rem;
         &:first-child {
@@ -250,6 +260,9 @@
         .wrapper {
             padding: 2rem 2rem 3rem 2rem;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             &:before{
                 content: '';
                 display: block;
@@ -258,6 +271,7 @@
                 margin-bottom: 2rem;
             }
             .h2 {
+                flex: 1 1 0;
                 color: $maroon;
                 font-family: 'Lora';
                 font-size: 24px;
@@ -270,6 +284,9 @@
                         color: $maroon;
                     }
                 }
+            }
+            .summary {
+                flex: 1 1 0;
             }
             .btn {
                 margin-top: 1rem;
@@ -291,7 +308,7 @@
         .views-element-container {
             display: flex;
             width: 100%;
-            align-items: center;
+            // align-items: center;
         }
         .related-news-block,
         .paragraph-block-header-text-link {
@@ -301,6 +318,9 @@
                 padding-top: 0;
                 background: white;
                 border-top: 4px solid $gray-5;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
                 &:first-child {
                     margin-left: 0;
                 }
@@ -747,6 +767,64 @@
         }
     }
 }
+
+.paragraph--contact-card-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.paragraph--contact-card {
+    background: $offwhite;
+    padding: 2rem !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    margin: 0 1rem;
+    min-width: 400px;
+    &:first-child {
+        margin-left: 0;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+    color: black;
+    .h4 {
+        color: $maroon;
+    }
+    .contact-title {
+        font-weight: 600;
+        margin-bottom: .5rem;
+    }
+    .contact-info {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: .25rem;
+        .label {
+            width: 25px;
+        }
+        .value {
+            display: flex;
+            flex: 1 1 auto;
+            .extra-info {
+                padding-left: .5rem;
+            }
+        }
+        a {
+            color: black !important;
+        }
+    }
+    .icon {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        color: $maroon;
+    }
+}
+
 
 // TEMPALTE STYLES BELOW --- ######################
 

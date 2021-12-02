@@ -1,0 +1,57 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+<div {{ attributes.addClass(classes) }}>
+    {% if content.field_title|render|trim is not empty %}
+        <h4 class="h4">{{ content.field_title }}</h3>
+    {% endif %}
+    {% if content.field_icon|render|trim is not empty %}
+        {% set faIcon = drupal_field('description', 'taxonomy_term', content.field_icon['#items'][0].target_id)|render|striptags()|trim %}
+        <div class="icon">
+          <i class="fa {{faIcon}}"></i>
+        </div>
+    {% endif %}
+    {% if content.field_header|render|trim is not empty %}
+        <div class="contact-title">
+          {{ content.field_header }}
+        </div>
+    {% endif %}
+    {% if content.field_location|render|trim is not empty %}
+        <div class="contact-info">
+          <span class="label">
+            <i class="fa fa-building"></i>
+          </span>
+          <span class="value">
+            {{ content.field_location }}
+          </span>
+        </div>
+    {% endif %}
+    {{ content.field_paragraph_bands }}
+    {% if content.field_email|render|trim is not empty %}
+        <div class="contact-info">
+          <span class="label">
+            <i class="fa fa-envelope"></i>
+          </span>
+          <span class="value">
+            {{ content.field_email }}
+          </span>
+        </div>
+    {% endif %}
+    {% if content.field_link|render|trim is not empty %}
+        <div class="contact-info">
+          <span class="label">
+            <i class="fa fa-globe"></i>
+          </span>
+          <span class="value">
+            {{ content.field_link }}
+          </span>
+        </div>
+    {% endif %}
+</div>
+{% endblock paragraph %}

@@ -1,0 +1,13 @@
+{% if content.field_title|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+  <div class="contact-info">
+    <span class="label">
+      <i class="fa fa-phone"></i>
+    </span>
+    <span class="value">
+      {{ content.field_phone }}
+      {% if content.field_title|render|trim is not empty %}
+        <span class="extra-info">({{content.field_title|render|striptags('<drupal-render-placeholder>')|trim}})</span>
+      {% endif %}
+    </span>
+  </div>
+{% endif %}
