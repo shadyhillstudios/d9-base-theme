@@ -1,0 +1,51 @@
+@import "_umass_brand_colors";
+
+.breadcrumb{
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+    ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        li {
+            color: $gray-2;
+            padding-right: .5em;
+            margin-right: .5em;
+            font-size: .875rem;
+            a {
+                text-decoration: none;
+                color: $gray-2; 
+                margin-right: .5em;               
+                &:hover {
+                    color: $maroon;
+                    text-decoration: underline;
+                }
+            }
+            i, svg {
+                font-size: .8em;
+                margin-left: .25em;
+            }
+        }
+        li:last-child {
+            i, svg {
+                display: none;
+            }
+        }
+    }
+}
+
+.breadcrumb-landing-page {
+    margin-top: -3rem;
+    padding-left: 50px;
+    .col {
+        padding: 0;
+    }
+}
+
+@include respond-to-max('mobile') { 
+    .breadcrumb, .breadcrumb-landing-page {
+        display: none;
+    }
+}

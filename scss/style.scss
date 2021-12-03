@@ -6,6 +6,7 @@
 @import "_footer";
 @import "_paragraphs";
 @import "_forms";
+@import "_breadcrumb";
 // @import "_explore";
 
 body, html{
@@ -306,7 +307,7 @@ div[class^="color-theme-"], div[class*=" color-theme-"] {
 .content {
   padding: 0 70px;
   .container {
-    padding: 0 35px;
+    padding: 0 45px;
   }
   @include respond-to-max('tablet') {
     padding: 0 15px;

@@ -1,0 +1,32 @@
+{%
+  set classes = [
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set expirationDate = content.field_expiration|render|striptags('<drupal-render-placeholder>')|trim %}
+{% if expirationDate is empty or expirationDate is not empty and date(expirationDate) > date() %}
+  {% block paragraph %}
+      <div {{ attributes.addClass(classes) }}>
+        <div class="container wrapper">
+          <div class="icon">
+            <i class="fa fa-exclamation-triangle"></i>
+          </div>
+          <div class="message">
+            <p>
+              {{ content.field_header }}
+              {% if content.field_link|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+                {% set link = link('test', content.field_link['#items'][0].uri) %}
+                <a href="{{ link['#url'] }}">Read More</a>
+              {% endif %}
+            </p>
+          </div>
+          <div class="action">
+            <i class="fa fa-times"></i>
+          </div>
+        </div>
+      </div>
+  {% endblock %}
+{% endif %}

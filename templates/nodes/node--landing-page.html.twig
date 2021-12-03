@@ -1,6 +1,11 @@
 <div{{ attributes.addClass('container') }}>
     <div class="row">
         <div class="col">
+            {% for band in content.field_paragraph_bands|children %}
+                {% if band['#paragraph'].bundle == 'alert_band' %}
+                    {{ band }}
+                {% endif %}
+            {% endfor %}
             {% if content.field_paragraph_band|render|striptags('<drupal-render-placeholder>')|trim is empty %}
                 <h1>
                   {{ node.label }}
@@ -9,7 +14,11 @@
                 {{ content.field_paragraph_band }}
             {% endif %}
             <div class="content">
-                {{ content.field_paragraph_bands }}
+                {% for band in content.field_paragraph_bands|children %}
+                    {% if band['#paragraph'].bundle != 'alert_band' %}
+                        {{ band }}
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>    
     </div>
