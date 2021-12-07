@@ -131,6 +131,37 @@
     }
 }
 
+// Override for large screens and aligning breakpoints
+#umass--global--header {
+  z-index: 15;
+  #container {
+    // @include respond-to-min('large') {
+    //   width: 1400px !important;
+    //   max-width: 1400px !important;
+    // }
+    @include respond-to-min('mobile') {
+      width: 100%;
+      max-width: 100%;
+    }
+    @include respond-to-min('tablet') {
+      width: $container_sm !important;
+      max-width: $container_sm !important;
+    }
+    @include respond-to-min('laptop') {
+      width: $container_md !important;
+      max-width: $container_md !important;
+    }
+    @include respond-to-min('desktop') {
+      width: $container_lg !important;
+      max-width: $container_lg !important;
+    }
+    @include respond-to-min('large') {
+      width: $container_xl !important;
+      max-width: $container_xl !important;
+    }
+  }
+}
+
 
 #mobile-nav-wrapper{
     display: none;

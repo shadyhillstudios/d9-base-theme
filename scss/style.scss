@@ -210,16 +210,18 @@ img {
   a {
     display: flex;
     align-items: center;
-    &:before{
-      content: '';
-      display: inline-block;
-      width: 5rem;
-      height: 5rem;
-      margin-right: .5rem;
-      // background-image: url('../imgs/necasc-logo-01.svg');
-    }
+    // &:before{
+    //   content: '';
+    //   display: inline-block;
+    //   width: 5rem;
+    //   height: 5rem;
+    //   margin-right: .5rem;
+    //   // background-image: url('../imgs/necasc-logo-01.svg');
+    // }
   }
 }
+
+
 
 // .site-header {
 //   .container {

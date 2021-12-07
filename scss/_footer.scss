@@ -1,88 +1,120 @@
 .footer-upper {
-    margin-top: 3rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    background: black;
-    position: relative;
-    margin-bottom: -1px;
-    // .curve-mask {
-    //     position: absolute;
-    //     top: -1px;
-    //     left: -1px;
-    //     min-height: 40px;
-    //     height: 2.5vw;
-    //     width: calc(100% + 2px);
-    //     background-image: url('../imgs/necasc-curve-01.svg');
-    //     background-repeat: no-repeat;
-    //     background-size: cover;
-    //     z-index: 5;
-    //     -moz-transform: scaleY(-1);
-    //     -o-transform: scaleY(-1);
-    //     -webkit-transform: scaleY(-1);
-    //     transform: scaleY(-1);
-    //     filter: FlipV;
-    //     -ms-filter: "FlipV";
+    margin-bottom: -3rem;
+    margin-top: 5rem;
+    background-color: $gray-2;
+    // div[class^="bg-image-"], div[class*=" bg-image-"] {
+    //     background-color: #333 !important;
     // }
+    .footer-upper-block {
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+        @include respond-to-max('mobile') {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            .col{
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+        .paragraph-text-block-band {
+            .anchor-base {
+                display: none;
+            }
+            .paragraph-block-header-text-link {
+                .wrapper {
+                    background-color: transparent;
+                    color: white;
+                    .h2 {
+                        a {
+                            color: white;
+                            svg, i {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }    
+        }
+        
+        // .footer-block-header {
+        //     color: white;
+        //     font-family: 'Lora';
+        //     font-size: 2rem;
+        //     margin: 1em 0 2em 0;
+        //     text-shadow: 1px 1px black;
+        //     @include respond-to-max('mobile') {
+        //         margin: .5em 0;
+        //         font-size: 1.5rem;
+        //     }
+        // }
+        // .paragraph-block-header-text-link {
+        //     margin-bottom: 2rem;
+        //     display: flex;
+        //     z-index: 2;
+        //     align-self: normal;
+        //     flex: 1 1 0;
+        //     margin: 1rem .5rem;
+        //     &:nth-child(2) {
+        //         margin-left: 0;
+        //     }
+        //     &:last-child {
+        //         margin-right: 0;
+        //     }
+        //     position: relative;
+        //     z-index: 2;
+        //     .wrapper {
+        //         padding-top: 0;
+        //         background: white;
+        //         border-top: 4px solid $gray-5;
+        //         display: flex;
+        //         flex-direction: column;
+        //         height: 100%;
+        //         &:first-child {
+        //             margin-left: 0;
+        //         }
+        //         &:last-child {
+        //             margin-right: 0;
+        //         }
+        //     }
+        // }
+        // .link-block {
+        //     display: flex;
+        //     color: white;            
+        //     padding: 1em 0;
+        //     border-top: 2px solid white;
+        //     &:hover{
+        //         background-color: rgba(255,255,255,.2);
+        //         border-color: $maroon;
+        //     }
+        //     a {
+        //         font-weight: 400;
+        //         text-decoration: none;
+        //         color: white;
+        //         display: flex;
+        //         padding: 0 1em;
+        //         width: 100%;
+        //         align-items: baseline;
+        //         &:hover{
+        //             text-decoration: none;                    
+        //         }
+        //     }
+        //     .wrapper{                                
+        //         flex: 1 1 auto;
+        //         .link-header{
+        //             font-family: 'Lora';
+        //             font-size: 1.3rem;
+        //             margin-bottom: .5rem;
+        //             font-weight: 600;
+        //         }
+        //         .link-body {
+        //             @include respond-to-max('mobile') {
+        //                 display: none;
+        //             }
+        //         }
+        //     }
+        //     .link-icon {
+        //         margin-right: 1em;
+        //     }
+        // }
+    }
 }
-
-// #block-footernecasclogofield {
-//     img {
-//         mix-blend-mode: screen;
-//         // filter: invert(1);
-//         opacity: 1;
-//         &:hover {
-//             opacity: .7;
-//             cursor: pointer;
-//         }
-//     }
-//     .image-link {
-//         flex: 1 1 auto;
-//         padding: 1rem;
-//         margin: 2rem .25rem 1rem .25rem;
-//         @include respond-to('desktop') {
-//             flex-basis: 15%;
-//         }
-//         @include respond-to('tablet') {
-//             flex-basis: 50%;
-//             margin: 0;
-//         }
-//     }
-// }
-
-// .footer-necasc {
-//     margin-top: 2rem;
-//     border-top: 1px solid #CCC;
-//     padding-top: 2rem;
-//     color: white;
-//     .col {
-//         padding: 0;
-//         .logo {
-//             display: block;
-//             background-image: url('../imgs/necasc-logo-footer-01.svg');
-//             background-repeat: no-repeat;
-//             background-size: contain;
-//             width: 240px;
-//             height: 90px;
-//         }
-//         &:last-child {
-//             text-align: right;
-//             a {
-//                 color: white;
-//                 &:hover {
-//                     text-decoration: underline;
-//                     color: white;
-//                 }
-//             }  
-//         }
-//         @include respond-to('tablet') {
-//             padding: 0 15px;
-//             flex: 1 1 auto;
-//             &:last-child {
-//                 text-align: center;
-//             }
-//             .logo {
-//                 margin: 0 auto;
-//             }
-//         }
-//     }
-// }

@@ -107,7 +107,12 @@ u {
   display: block;
   margin: 1em 0;
     a {
-        @include invertButton();
+        @include baseButton();
         
     }
+}
+
+.intro-text{
+  font-size: 1.2rem;
+  font-weight: 300;
 }
