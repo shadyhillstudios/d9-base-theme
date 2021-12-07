@@ -36,17 +36,17 @@
     {% else %}
       <ul>
     {% endif %}
+    <li id="site-search">
+      <a href="{{ path('view.site_search.page_1') }}">
+        <span class="element-invisible">Site Search</span>
+        <i class="fas fa-search" role="presentation"></i>
+      </a>
+    </li>
     {% for item in items %}
       <li{{ item.attributes }}>
           {{ link(item.title, item.url) }}
       </li>
     {% endfor %}
-      {# <li id="site-search">
-        <a href="{{ path('view.site_search.page_1') }}">
-          <span class="element-invisible">Site Search</span>
-          <i class="fas fa-search" role="presentation"></i>
-        </a>
-      </li> #}
     </ul>
   {% endif %}
 {% endmacro %}

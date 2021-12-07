@@ -26,6 +26,11 @@
         {{ header_title }}
       </h1>
     </div>
+    {% if content.field_restricted_html|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+      <div class="intro-text">
+        {{ content.field_restricted_html }}
+      </div>
+    {% endif %}
   </div>
   {% endblock paragraph %}
 {% endif %}

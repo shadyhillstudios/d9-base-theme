@@ -121,11 +121,34 @@
                 a{
                     padding: 0 .5em;
                     text-decoration: none;
+                    color: $maroon;
                     &:hover{
                         color: $maroon;
                         text-decoration: underline;
                     }
-                }            
+                }
+                li {
+                    &:last-child {
+                        background: $maroon;
+                        color: white;
+                        padding: .5rem 1rem;
+                        margin-left: 1rem;
+                        font-weight: 500;
+                        a {
+                            color: white;
+                        }
+                    }
+                    &#site-search {
+                        background: none;
+                        color: $maroon;
+                        padding: 0 .5rem;
+                        margin-left: 0;
+                        font-weight: normal;
+                        a {
+                            color: $maroon;
+                        }
+                    }
+                }
             }
         }
     }
