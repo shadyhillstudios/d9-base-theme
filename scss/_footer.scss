@@ -19,8 +19,13 @@
         .paragraph-text-block-band {
             .paragraph-block-header-text-link {
                 .wrapper {
+                    padding-top: 0px;
+                    position: relative;
                     &:before {
                         border: 1px solid white;
+                        position: relative;
+                        left: -25px;
+                        width: calc(100% + 50px);
                     }
                     background-color: transparent;
                     color: white;

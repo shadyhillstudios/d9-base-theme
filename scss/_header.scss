@@ -6,6 +6,7 @@
         justify-content: space-between;
         align-items: center;
         margin: 0 -15px;
+        padding: 0 100px;
         @include respond-to-max('desktop') { 
             padding: 0 30px;
         }
@@ -162,6 +163,7 @@
     //   width: 1400px !important;
     //   max-width: 1400px !important;
     // }
+    padding: 0 100px;
     @include respond-to-min('mobile') {
       width: 100%;
       max-width: 100%;
