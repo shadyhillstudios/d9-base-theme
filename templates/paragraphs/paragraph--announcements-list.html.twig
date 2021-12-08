@@ -47,25 +47,29 @@
 {% endif %}
 
 {% block paragraph %}
-  <div {{ attributes.addClass(classes) }}>
-      {% block content %}
-        {% set results = drupal_view_result('announcements', 'announcement_block', parent.nid.value, tags)|length %}
-        {% if results > 0 %}
-          <div class="row row-header">
-            <div class="col d-flex justify-content-between">
-              <h3 class="h5">{{ header }}</h3>
-              {% set link = link('test', content.field_link['#items'][0].uri) %}
+  <div class="content">
+    <div {{ attributes.addClass(classes) }}>
+        {% block content %}
+          {% set results = drupal_view_result('announcements', 'announcement_block', parent.nid.value, tags)|length %}
+          {% if results > 0 %}
+            <div class="row row-header">
+              <div class="col">
+                <h3 class="h5">{{ header }}</h3>
+              </div>
+            </div>
+            <div class="paragraph-related-announcement-list">
+                {{ drupal_view('announcements', 'announcement_list', parent.nid.value, tags) }}
+            </div>
+            {% set link = link('test', content.field_link['#items'][0].uri) %}
+            <div class="link-btn">
               <a href="{{ link['#url'] }}" class="btn" {% if content.field_link['#items'][0].options.external %} target="_blank" {% endif %}>
                 Read More
               </a>
             </div>
           </div>
-          <div class="paragraph-related-announcement-band th-anchored th-{{ content.field_band_color|render|striptags('<drupal-render-placeholder>')|trim }}">
-            <div class="anchor-base"></div>
-              {{ drupal_view('announcements', 'announcement_block', parent.nid.value, tags) }}
-            </div>
-          </div>
-        {% endif %}
-      {% endblock %}
+            
+          {% endif %}
+        {% endblock %}
+    </div>
   </div>
 {% endblock paragraph %}

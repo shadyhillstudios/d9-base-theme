@@ -307,6 +307,53 @@
     }
 }
 
+@mixin colorThemes {
+    @each $key, $colors in $color-themes {
+        &.th-#{$key} {
+            &.th-anchored {
+                .related-news-block,
+                .paragraph-block-header-text-link {
+                    .wrapper {
+                        border-color: nth($colors, 1);
+                        &:hover, &:focus {
+                            border-color: nth($colors, 2);
+                            .h3,
+                            .h2 {
+                                a {
+                                    color: nth($colors, 2);
+                                }
+                            }
+                        }
+                    }
+                }
+                .anchor-base {
+                    background-color: nth($colors, 1);
+                }
+            }
+            &.th-border-top {
+                .paragraph-block-header-text-link {
+                    .wrapper {
+                        &:before {
+                            border-color: nth($colors, 2);
+                        }
+                        .h3,
+                        .h2 {
+                            color: nth($colors, 2);
+                        }
+                    }
+                }
+            }
+            &.th-tiled {
+                .paragraph-block-header-text-link {
+                    .wrapper {
+                        background-color: nth($colors, 2);
+                    }
+                }
+            }
+        }
+    }
+}
+
 @mixin pager {
     .pager {
         padding-top: .5rem;

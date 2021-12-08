@@ -5,7 +5,8 @@
       'paragraph',
       'paragraph-' ~ paragraph.bundle|clean_class,
       view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-      content.field_layout_style|render|striptags('<drupal-render-placeholder>')|trim,
+      'th-' ~ content.field_layout_style|render|striptags('<drupal-render-placeholder>')|trim,
+      'th-' ~ content.field_band_color|render|striptags('<drupal-render-placeholder>')|trim,
       not paragraph.isPublished() ? 'paragraph--unpublished'
     ]
   %}
@@ -17,10 +18,7 @@
         </div>
       </div>
     {% endif %}
-    {% if content.field_layout_style|render|striptags('<drupal-render-placeholder>')|trim == 'anchored' %}
-      <div class="anchor-base"></div>
-    {% endif %}
+    <div class="anchor-base"></div>
     {{ content.field_paragraph_bands }}
-    
   </div>
 {% endblock paragraph %}

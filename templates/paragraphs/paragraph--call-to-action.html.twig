@@ -6,14 +6,21 @@
     'bg-image-' ~ content.field_media_image['#items'][0].target_id
   ]
 %}
+{% set link = link('test', content.field_link['#items'][0].uri) %}
+{% set hasLink = content.field_link|render|striptags('<drupal-render-placeholder>')|trim is not empty ? true : false %}
 {% block paragraph %}
     <div {{ attributes.addClass(classes) }}>
       {{ content.field_media_image }}
       <h2>
+        {% if hasLink %}
+          <a href="{{ link['#url'] }}">
+        {% endif %}
         {{ content.field_header }}
+        {% if hasLink %}
+          </a>
+        {% endif %}
       </h2>
-      {% if content.field_link|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-        {% set link = link('test', content.field_link['#items'][0].uri) %}
+      {% if hasLink %}
         <a href="{{ link['#url'] }}">
           <i class="fas fa-arrow-right" role="presentation"></i>
         </a>

@@ -1,7 +1,12 @@
+{% set bgImage = content.field_media_image['#items'][0] ? 'bg-image-' ~ content.field_media_image['#items'][0].target_id : '' %}
+
 {% block content %}
+<div {{ attributes.addClass(bgImage) }}>
+    {{ content.field_media_image }}
     <div class="container footer-upper-block">
         <div class="row">
             {{ content.field_paragraph_band }}
         </div>
     </div>
+</div>
 {% endblock %}

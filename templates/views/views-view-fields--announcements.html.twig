@@ -2,15 +2,16 @@
 
 <div class="tile related-news-block">
     <div class="wrapper">
-        <div class="h2">
+        <div class="h3">
             <a href="{{ internalUrl }}">
                 {{ fields.title.content }}
             </a>
         </div>
+        <div class="published-on">
+            {{ fields.created.content }}
+        </div>
         <div class="summary">
-            {# <a class="read-more" href="{{ internalUrl }}"> #}
-                {{ fields.created.content }}
-            {# </a> #}
+            {{ fields.field_restricted_html.content }}
         </div>
     </div>
 </div>

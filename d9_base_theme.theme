@@ -10,37 +10,3 @@ function d9_base_theme_theme_suggestions_page_alter(array &$suggestions, array $
         $suggestions[] = 'page__' . $content_type;
     }
 }
-
-/** 
- * Preprocess paragraphs and look for news bands on landing pages that have a slider style header.
- * Exclude anything linked in the slider from the news band
- */
-// function shs_necasc_preprocess_paragraph(&$variables) {
-//   $paragraph = $variables['paragraph'];
-//   $parentEntity = $paragraph->getParentEntity();  
-//   if ($paragraph->bundle() === 'recent_news_band' && $parentEntity->bundle() === 'landing_page') {
-//     $nidsToSkip = [];
-//     if(!empty($parentEntity->get('field_paragraph_header'))){
-//       $header_tid = $parentEntity->get('field_paragraph_header')[0]->target_id;
-//       $headerParagraph = \Drupal\paragraphs\Entity\Paragraph::load($header_tid);
-//       if (!empty($headerParagraph->get('field_paragraph_slideshow'))){
-//         $slideshow_tid = $headerParagraph->get('field_paragraph_slideshow')[0]->target_id;
-//         $slideshowParagraph = \Drupal\paragraphs\Entity\Paragraph::load($slideshow_tid);
-//         if (!empty($slideshowParagraph->get('field_slideshow_slides'))) {
-//           foreach($slideshowParagraph->get('field_slideshow_slides') as $slide){
-//             $slide_tid = $slide->target_id;
-//             $slideParagraph = \Drupal\paragraphs\Entity\Paragraph::load($slide_tid);
-//             if (!empty($slideParagraph->get('field_link'))) {
-//               if(isset($slideParagraph->get('field_link')[0]->uri)){
-//                 $uriParts = explode('/', $slideParagraph->get('field_link')[0]->uri);
-//                 $nid = end($uriParts);
-//                 $nidsToSkip[] = $nid;
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     $paragraph->set('field_text_plain_mutli', $nidsToSkip);
-//   }
-// }

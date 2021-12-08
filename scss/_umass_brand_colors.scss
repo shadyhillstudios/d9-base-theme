@@ -11,13 +11,13 @@ $warm-gray-5: #aca39a;
 $pms-1245: #c69214;
 $pms-471: #b86125;
 $pms-1675: #a8431e;
-$pms-5793: #b3b995;
-$pms-7496: #76881d;
-$pms-302: #003b5c; 
-$pms-5415: #5b7f95;
-$pms-7458: #71b2c9;
-$pms-490: #5d2a2c; 
-$pms-7449: #41273b; 
+$pms-5793: #b3b995; // muted green
+$pms-7496: #76881d; // green
+$pms-302: #003b5c; // dark blue
+$pms-5415: #5b7f95; // gray blue
+$pms-7458: #71b2c9; // sky blue
+$pms-490: #5d2a2c; // dark maroon
+$pms-7449: #41273b; // dark purple
 
 // Accent Colors
 $gray-1: #333;
@@ -48,3 +48,20 @@ $color-profiles: (
     'pms-490': $pms-490 $white,
     'pms-7449': $pms-7449 $white
 );
+
+// $color-themes: (
+//     'blue': $pms-5415 black,
+//     'green': $pms-7496 black,
+//     'maroon': $maroon white,
+//     'white': white $maroon,
+//     'grey': $gray-2 black
+// );
+
+$color-themes: (
+    'blue': #EDF2F5 #5D8094,
+    'green': #E9EBE2 #778728,
+    'yellow': #F2F0E6 #C59128,
+    'grey': #EBE8EA #42273A,
+    'maroon': #EBE8EA #881C1C,
+    'default': #EBE8EA #881C1C,
+)

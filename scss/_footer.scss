@@ -17,11 +17,11 @@
             }
         }
         .paragraph-text-block-band {
-            .anchor-base {
-                display: none;
-            }
             .paragraph-block-header-text-link {
                 .wrapper {
+                    &:before {
+                        border: 1px solid white;
+                    }
                     background-color: transparent;
                     color: white;
                     .h2 {
@@ -31,6 +31,9 @@
                                 display: none;
                             }
                         }
+                    }
+                    &:hover, &:active {
+                        background-color: rgba(255, 255, 255, .8);
                     }
                 }
             }    

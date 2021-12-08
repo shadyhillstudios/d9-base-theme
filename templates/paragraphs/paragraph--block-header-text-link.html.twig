@@ -8,14 +8,13 @@
   ]
 %}
 {% set parent = paragraph._referringItem.parent.parent.entity %}
-{# {% set layoutStyle = parent.field_layout_style|render|striptags('<drupal-render-placeholder>')|trim %} #}
+{% set link = link('test', content.field_link['#items'][0].uri) %}
 {% block paragraph %}
 <div {{ attributes.addClass(classes) }}>
   <div class="wrapper">
     <div class="h2">
-      {% if parent.field_layout_style.value|trim == 'anchored' %}
+      {% if parent.field_layout_style.value|trim == 'anchored' or parent.field_layout_style.value|trim == 'footer' %}
         {% if content.field_link['#items'] is not empty %}
-          {% set link = link('test', content.field_link['#items'][0].uri) %}
           <a href="{{ link['#url'] }}" {% if content.field_link['#items'][0].options.external %} target="_blank" {% endif %}>
             {{ content.field_title}}
             <i class="fas fa-arrow-right" role="presentation"></i>
@@ -28,8 +27,16 @@
     <div class="summary">
       {{ content.field_restricted_html }}
     </div>
-    {% if parent.field_layout_style.value|trim != 'anchored' %}
-      {{ content.field_link }}
+    {% if parent.field_layout_style.value|trim != 'anchored' and parent.field_layout_style.value|trim != 'footer' %}
+      <div class="link-btn">
+        <a href="{{ link['#url'] }}" class="btn" {% if content.field_link['#items'][0].options.external %} target="_blank" {% endif %}>
+          {% if content.field_link['#items'][0].title|render|striptags('<drupal-render-placeholder>') is not empty %}
+            {{ content.field_link['#items'][0].title }}
+          {% else %}
+            Read More
+          {% endif %}
+        </a>
+      </div>
     {% endif %}
   </div>
 </div>
