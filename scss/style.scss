@@ -221,6 +221,13 @@ img {
   }
 }
 
+a {
+  color: $maroon;
+  &:hover, &:focus {
+    color: blue;
+  }
+}
+
 
 
 // .site-header {
@@ -230,19 +237,19 @@ img {
 // }
 
 // Specific Color Theme Overrides
-div[class^="color-theme-"], div[class*=" color-theme-"] {
-  color: white;
-  h1, h2, h3, h4, a {
-    color: white;
-  }
-  .btn {
-    border-color: white;
-    &:hover {
-      background: white;
-      color: black;
-    }
-  }
-}
+// div[class^="color-theme-"], div[class*=" color-theme-"] {
+//   color: white;
+//   h1, h2, h3, h4, a {
+//     color: white;
+//   }
+//   .btn {
+//     border-color: white;
+//     &:hover {
+//       background: white;
+//       color: black;
+//     }
+//   }
+// }
 .main-content {
   // based off col-md-9, adjust as needed
   max-width: 75%; 

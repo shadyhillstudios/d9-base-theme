@@ -307,6 +307,19 @@
     }
 }
 
+@mixin colorCTAs {
+    @each $key, $colors in $color-themes {
+        &.th-#{$key} {
+            a.paragraph-call-to-action,
+            .paragraph-call-to-action {
+                &:before {
+                    background-color: nth($colors, 2);
+                }
+            }
+        }
+    }
+}
+
 @mixin colorThemes {
     @each $key, $colors in $color-themes {
         &.th-#{$key} {

@@ -118,6 +118,18 @@
                         background: white;
                         padding: 45px;
                         margin: 0 0 5rem 55px;
+                        .link-btn {
+                            a {
+                                @include baseButton();
+                                // margin-right: auto;
+                                // color: black;
+                                // border: thin solid $gray-4;
+                                // &:hover, &:focus {
+                                //     color: $maroon;
+                                //     border-color: $maroon;
+                                // }
+                            }
+                        }
                     }
                 }
                 @include respond-to-max('mobile') {
@@ -808,7 +820,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    .paragraph-call-to-action {
+    .paragraph-call-to-action,
+    a.paragraph-call-to-action {
         background: $maroon;
         color: white;
         padding: 1rem 2rem;
@@ -837,7 +850,12 @@
             background-color: $maroon;
             opacity: .8;
         }
-        h2 {
+        svg, i {
+            font-size: 2rem;
+            color: white;
+            z-index: 2;
+        }
+        .h2 {
             color: white;
             margin: 0;
             font-weight: 400;
@@ -849,36 +867,15 @@
                     text-decoration: underline;
                 }
             }
-        }
-        a {
-            z-index: 2;
-            color: white;
-            svg, i {
-                font-size: 2rem;
-            }
+        }        
+    }
+    a.paragraph-call-to-action {
+        text-decoration: none;
+        &:hover, &:focus {
+            text-decoration: underline;
         }
     }
-    &.green {
-        .paragraph-call-to-action {
-            &:before {
-                background-color: $pms-5793;
-            }
-        }
-    }
-    &.blue {
-        .paragraph-call-to-action {
-            &:before {
-                background-color: $pms-5415;
-            }
-        }
-    }
-    &.maroon {
-        .paragraph-call-to-action {
-            &:before {
-                background-color: $maroon;
-            }
-        }
-    }
+    @include colorCTAs();
 }
 
 .paragraph-accordion {

@@ -65,6 +65,7 @@
       </div>
       <div class="link-btn">
         <a href="{{ link['#url'] }}" class="btn" {% if is_external %} target="_blank" {% endif %}>
+          <span class="visually-hidden">{{ title }}</span>
           Read More
           {% if is_external %}
             <i class="fas fa-external-link-alt" role="presentation"></i>

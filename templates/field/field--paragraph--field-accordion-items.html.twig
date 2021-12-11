@@ -1,15 +1,15 @@
 {% for item in items %}
     {% set entity_id = item.content['#paragraph'].id.value %}
-    <h2 class="h3">
       <button aria-expanded="false" class="accordion-trigger" aria-controls="sect{{ entity_id }}" id="accordion{{ entity_id }}id">
+        <h2 class="h3">
         <span class="accordion-title h3">
           {{ drupal_field('field_title', 'paragraph', entity_id) }}
           <span class="accordion-icon">
             <i class="fas fa-plus" aria-label="expand item"></i>
           </span>
         </span>
+        </h2>
       </button>
-    </h2>
     <div id="sect{{ entity_id }}" role="region" aria-hidden="true" aria-labelledby="accordion{{ entity_id }}id" class="accordion-panel" hidden>
       {{ drupal_field('field_paragraph_bands', 'paragraph', entity_id) }}
   </div>
