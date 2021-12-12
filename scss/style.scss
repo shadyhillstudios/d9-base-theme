@@ -71,6 +71,9 @@ img {
   }
   .container {
     width: 100%;
+    @include respond-to-max('mobile') {
+      padding: 0;
+    }
   }
 }
 
@@ -317,6 +320,9 @@ a {
   padding: 0 70px;
   .container {
     padding: 0 45px;
+    @include respond-to-max('mobile') {
+      padding: 0;
+    }
   }
   @include respond-to-max('tablet') {
     padding: 0 15px;

@@ -41,6 +41,9 @@
                         background-color: rgba(230, 230, 230, .1);
                     }
                 }
+                @include respond-to-max('mobile') {
+                    min-width: 100%;
+                }
             }    
         }
         

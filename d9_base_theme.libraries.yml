@@ -3,6 +3,10 @@ global-css:
     theme:
       css/style.css: {}
 
+global-js:
+  js:
+    js/mobile-menu.js: {}
+
 bootstrap-cdn:
   js:
     //cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js: {type: external, minified: true}

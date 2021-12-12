@@ -6,6 +6,7 @@ base theme: stable9
 
 libraries:
   - d9_base_theme/global-css
+  - d9_base_theme/global-js
   - d9_base_theme/bootstrap-cdn
   - d9_base_theme/fonts
 
