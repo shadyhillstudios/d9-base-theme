@@ -101,8 +101,8 @@
     }
 }
 
-
 .paragraph-image-with-text {
+    margin-bottom: 3rem;
     &.inset-text {
         @include paraMargins();
         @include overFlowLarge();
@@ -112,7 +112,6 @@
         .row {
             justify-content: flex-end;
             .col-6 {
-                // position: absolute;
                 .wrapper {
                     background: white;
                     padding: 4rem;
@@ -139,7 +138,6 @@
             .row {
                 justify-content: flex-start;
                 .col-6 {
-                    // position: absolute;
                     .wrapper {
                         background: white;
                         padding: 45px;
@@ -214,15 +212,7 @@
                         .link-btn {
                             a {
                                 @include baseButton();
-                            }
-                        }
-                        .btn{
-                            margin-right: auto;
-                            color: black;
-                            border-color: $gray-4;
-                            &:hover, &:focus{
-                                color: white;
-                                border-color: $maroon;
+                                background-color: white;
                             }
                         }
                     }
@@ -550,196 +540,6 @@
             }
         }
     }
-    // &.green {
-    //     &.anchored {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 &:hover, &:focus {
-    //                     border-color: $pms-7496;
-    //                     .h2 {
-    //                         a {
-    //                             color: $pms-7496;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.border-top {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 &:before {
-    //                     border-color: $pms-7496;
-    //                 }
-    //                 .h2 {
-    //                     color: $pms-7496;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.tiled {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 background-color: $pms-7496;
-    //             }
-    //         }
-    //     }
-    // }
-
-    // &.blue {
-    //     &.anchored {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 &:hover, &:focus {
-    //                     border-color: $pms-5415;
-    //                     .h2 {
-    //                         a {
-    //                             color: $pms-5415;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.border-top {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 &:before {
-    //                     border-color: $pms-5415;
-    //                 }
-    //                 .h2 {
-    //                     color: $pms-5415;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.tiled {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 background-color: $pms-5415;
-    //             }
-    //         }
-    //     }
-    // }
-
-    // &.maroon {
-    //     &.anchored {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 border-color: $maroon;
-    //                     .h2 {
-    //                         a {
-    //                             color: $maroon;
-    //                         }
-    //                     }
-    //                 &:hover, &:focus {
-    //                     border-color: $gray-3;
-    //                     .h2 {
-    //                         a {
-    //                             color: $gray-3;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.border-top {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 &:before {
-    //                     border-color: $maroon;
-    //                 }
-    //                 .h2 {
-    //                     color: $maroon;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.tiled {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 background-color: $maroon;
-    //             }
-    //         }
-    //     }
-    // }
-
-    // &.white {
-    //     &.anchored {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 border-color: white;
-    //                     .h2 {
-    //                         a {
-    //                             color: white;
-    //                         }
-    //                     }
-    //                 &:hover, &:focus {
-    //                     border-color: $maroon;
-    //                     .h2 {
-    //                         a {
-    //                             color: $maroon;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.border-top {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 &:before {
-    //                     border-color: $white;
-    //                 }
-    //                 .h2 {
-    //                     color: $white;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
-    // &.grey {
-    //     &.anchored {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 border-color: $gray-2;
-    //                     .h2 {
-    //                         a {
-    //                             color: $gray-2;
-    //                         }
-    //                     }
-    //                 &:hover, &:focus {
-    //                     border-color: $maroon;
-    //                     .h2 {
-    //                         a {
-    //                             color: $maroon;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.border-top {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 &:before {
-    //                     border-color: $gray-2;
-    //                 }
-    //                 .h2 {
-    //                     color: $gray-2;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.tiled {
-    //         .paragraph-block-header-text-link {
-    //             .wrapper {
-    //                 background-color: $gray-2;
-    //             }
-    //         }
-    //     }
-    // }
 }
 
 .paragraph-link-column-with-text-block {
@@ -1281,7 +1081,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem;
+        padding: 1rem 100px;
         .icon {
             width: 50px;
             font-size: 2rem;
@@ -1297,7 +1097,13 @@
             width: 50px;
             display: flex;
             justify-content: flex-end;
+            &:hover, &:focus {
+                cursor: pointer;
+            }
         }
+    }
+    &.is-closed {
+        display: none;
     }
 }
 
@@ -1308,363 +1114,3 @@
         padding: 0;
     }
 }
-
-// TEMPALTE STYLES BELOW --- ######################
-
-
-
-// COMMENTED OUT
-// .paragraph-highlight-band {
-//     // @include paraMargins();
-//     // margin-left: -50px;
-//     // margin-right: -50px;
-//     // &.row {
-//     //     .col-6 {
-//     //         max-width: none;
-//     //         &:first-child {
-//     //             flex: 0 0 450px;
-//     //             margin-right: -150px;
-//     //             margin-left: 0px;
-//     //             padding-left: 0;
-//     //             z-index: 2;
-//     //             display: flex;
-//     //             align-items: center;
-//     //             .wrapper {
-//     //                 width: 100%;
-//     //                 height: auto;
-//     //                 padding:3rem 0;
-//     //                 img{
-//     //                     width: 100%;
-//     //                 }
-//     //             }
-//     //         }
-//     //         &:last-child {
-//     //             flex: 0 0 calc(100% - 300px);
-//     //             margin-right: -150px;
-//     //             .wrapper {
-//     //                 padding: 3rem 2rem 3rem 150px;
-//     //                 height: 100%;
-//     //                 display: flex;
-//     //                 flex-direction: column;
-//     //                 justify-content: center;
-//     //                 h2{
-//     //                     margin-bottom: 2rem;
-//     //                 }
-//     //                 .btn{
-//     //                     margin-right: auto;
-//     //                     margin-top: 2rem;
-//     //                 }
-//     //             }
-//     //         }
-//     //     }
-//     //     &.color-theme-blue {
-//     //         .col-6:last-child {
-//     //             background-color: black;
-//     //         }
-//     //     }
-//     //     &.color-theme-green {
-//     //         .col-6:last-child {
-//     //             background-color: black;
-//     //         }
-//     //     }
-//     //     &.color-theme-grey {
-//     //         .col-6:last-child {
-//     //             background-color: $gray-3;
-//     //         }
-//     //     }
-//     //     @include respond-to-max('laptop') {
-//     //         .col-6 { 
-//     //             &:first-child {
-//     //                 flex: 0 0 350px;
-//     //                 margin-right: -100px;
-//     //                 .wrapper{
-//     //                 }
-//     //             }
-//     //             &:last-child {
-//     //                 flex: 0 0 calc(100% - 250px);
-//     //                 .wrapper{
-//     //                     padding: 3rem 50px 3rem 90px;
-//     //                 }
-//     //             }
-//     //         }
-//     //     }
-//     //     @include respond-to-max('tablet') {
-//     //         .col-6 { 
-//     //             &:first-child {
-//     //                 // width: calc(100% - 30px);
-//     //                 flex: 0 0 calc(100% - 30px);
-//     //                 margin: 0 auto;
-//     //                 padding-left: 15px;
-//     //                 .wrapper{
-//     //                     padding: 0 15px;
-//     //                 }
-//     //             }
-//     //             &:last-child {
-//     //                 width: 100%;
-//     //                 flex: 1 1 auto;
-//     //                 // margin: -50px -35px 0;
-//     //                 margin: -50px 15px 0;
-//     //                 .wrapper{
-//     //                     padding: 80px 30px 30px 30px;
-//     //                 }
-//     //             }
-//     //         }
-//     //     }
-        
-//     // }
-// }
-
-// .paragraph--type--link-with-description {
-//     i, svg {
-//         display: none;
-//     }
-//     .header {
-//         text-transform: uppercase;
-//     }
-//     .description {
-//         font-weight: 600;
-//     }
-//     .thumbnail {
-//         flex: 0 0 280px;
-//     }
-//     .large-text {
-//         font-family: 'Montserrat';
-//     }
-// }
-
-// .paragraph--type--profile-grid {
-//     h2 {
-//         margin: 1em 0;
-//     }
-//     .tile-view {
-//         img {
-//             width: 100%;
-//             margin-bottom: 1rem;
-//         }
-//         h4 {
-
-//         }
-//         margin-bottom: 2rem;
-//     }
-// }
-
-// .paragraph--type--profile-callout {
-//     .profile-callout {
-//         display: flex;
-//         align-items: center;
-//         .thumbnail {
-//             width: 180px;
-//         }
-//         .details {
-//             background-color: $gray-4;
-//             flex: 1 1 calc(100% - 205px);
-//             margin-left: -25px;
-//             .wrapper {
-//                 padding: 2rem 3rem 2rem 4rem;
-//                 .btn {
-//                     @include invertButton();
-//                     margin-top: 1em;
-//                 }
-//             }
-//         }
-//         @include respond-to-max('tablet') {
-//             flex-direction: column;
-//             .thumbnail {
-//                 margin-bottom: -2rem;
-//             }
-//             .details {
-//                 flex: 1 1 auto;
-//                 margin-left: 0;
-//                 .wrapper {
-//                     padding: 4rem 3rem 2rem 3rem;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// .paragraph--type--list-text {
-//     @include paraMargins(1rem);
-//     h3 {
-//         margin-bottom: 1rem;
-//     }
-//     .list-item {
-//         margin-bottom: .85rem;
-//     }
-// }
-
-// .paragraph--type--two-columns-50-50 {
-//     @include paraMargins();
-//     .paragraph--type--wysiwyg {
-//         h3, .h2 {
-//             margin-top: 0;
-//         }
-//     }
-//     img {
-//         @include paraMargins();
-//     }
-// }
-
-// .paragraph--type--recent-news-band, .paragraph--type--related-news-band {
-//     @include paraMargins(3rem);
-//     @include respond-to-max('laptop') {
-//         @include paraMargins(1rem);
-//     }
-//     .no-image {
-//         .thumbnail {
-//             padding-top: 53.5714%;
-//             // background-image: url('../imgs/necasc-logo-01.svg');
-//             background-size: 80% 80%;
-//             background-position: center;
-//             background-repeat: no-repeat;
-//             background-color: rgba(220,220,220, .3);
-//         }
-//     }
-//     .thumbnail {
-//         margin-bottom: 1.5rem;
-//         img {
-//             width: 100%;
-//         }
-//     }
-//     .wrapper {
-//         background: white;
-//         height: 100%;
-//         display: flex;
-//         flex-direction: column;
-//         @include respond-to-max('laptop') {
-//             margin-bottom: 1rem;
-//             padding-bottom: 1rem;
-//         }
-//         .details {
-//             height: 100%;
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: space-between;
-//             .h5 {
-//                 font-weight: 600;
-//                 margin-bottom: 1rem;
-//                 a {
-//                     color: black;
-//                 }
-//             }
-//             .btn {
-//                 @include clearButton;
-//                 color: black;
-//                 font-weight: 600;
-//                 svg, i {
-//                     display: inline;
-//                 }
-//             }
-//             @include respond-to-max('laptop') {
-//                 height: auto;
-//                 padding-bottom: 1rem;
-//                 border-bottom: thin solid $gray-3;
-//             }
-//         }                  
-//     }
-// }
-
-// .paragraph--type--science-theme-list {
-//     @include paraMargins(3rem);
-//     .tile-view {
-//         .wrapper {
-//             padding: 2rem 1.25rem;
-//             border-top: 6px solid $gray-4;
-//             .label {
-//                 display: flex;
-//                 .h4 {
-//                     color: black;
-//                     margin-bottom: 1em;
-//                     margin-right: 1rem;
-//                 }
-//                 img {
-//                     max-width: 4rem;
-//                 }
-//             }
-//             .btn {
-//                 @include clearButton;
-//                 display: block;
-//                 color: black;
-//                 font-weight: 600;
-//                 margin-top: 1em;
-//                 i, svg {
-//                     display: inline-block;
-//                 }
-//             }
-//             &.btn-more {
-//                 .btn {
-//                     color: $gray-1;
-//                     font-weight: 600;
-//                     margin-top: 0;
-//                     font-size: 1.636rem;
-//                     i, svg {
-//                         display: inline-block;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// .paragraph--type--webinars-band {
-//      @include paraMargins(3rem);
-//      .wrapper {
-//         padding: 2rem 1.25rem;
-//         border-top: 6px solid $gray-4;
-//         &:hover, &:focus {
-//             border-top-color: black;
-//         }
-//         .details {
-//             &:hover, &:focus {
-//                 text-decoration: none;
-//             }
-//         }
-//         .tag {
-//             color: white;
-//             background-color: black;
-//             display: inline-block;
-//             padding: .25em .75em;
-//             border-radius: .125em;
-//             &.past {
-//                 background-color: $gray-2;
-//             }
-//         }
-//         .h5 {
-//             font-weight: 600;
-//             margin-bottom: .5em;
-//         }
-//         .speaker {
-//             margin-bottom: 1em;
-//         }
-//      }
-// }
-
-// .paragraph--type--modal-video {
-//     &.video-callout {
-//         display: flex;
-//         align-items: center;
-//         .thumbnail {
-//             width: 180px;
-//         }
-//         .details {
-//             background-color: $gray-4;
-//             flex: 1 1 calc(100% - 205px);
-//             margin-left: -40px;
-//             .wrapper {
-//                 padding: 2rem 3rem 2rem 5rem;
-//                 .btn {
-//                     @include invertButton();
-//                     margin-top: 1em;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// .partner-group {
-//     span:nth-child(2) {
-//         &:before {
-//             content: ' | ';
-//         }
-//     }    
-// }

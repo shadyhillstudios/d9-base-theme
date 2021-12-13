@@ -6,6 +6,7 @@ global-css:
 global-js:
   js:
     js/mobile-menu.js: {}
+    js/alert-band.js: {}
 
 bootstrap-cdn:
   js:
