@@ -1058,6 +1058,9 @@
             &::-moz-focus-inner {
                 border: 0;
             }
+            h2 {
+                pointer-events: none;
+            }
         }
     }
 }

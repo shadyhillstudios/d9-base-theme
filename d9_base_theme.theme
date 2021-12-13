@@ -10,3 +10,34 @@ function d9_base_theme_theme_suggestions_page_alter(array &$suggestions, array $
         $suggestions[] = 'page__' . $content_type;
     }
 }
+
+/**
+ * Implements hook_preprocess_html() for html templates.
+ */
+function d9_base_theme_preprocess_html(&$variables)
+{
+    $node = \Drupal::routeMatch()->getParameter('node');// Load the node entity from current route
+    if ($node) {
+      // Add META tag title + description from back-office
+      if ($node->hasField('field_display_title')) {
+        $displayTitle = $node->get('field_display_title');
+        if (!empty($displayTitle->value)) {
+            // Get the current page title, which we'll assume is in the title 
+            $curTitle = $variables['head_title']['title'];
+            $count = 1;
+            // Replace that string with our display title, keeping the rest of the string intact
+            $newTitle = str_replace($node->get('title')->value, $displayTitle->value, $curTitle, $count);
+            // Set it as our new title
+            $variables['head_title']['title'] = $newTitle;
+        }
+      }
+      // Override viewport setting
+      // $count = 0;
+      // foreach ($variables['page']['#attached']['html_head'] as $item) {
+      //   if ($item[1] === 'viewport') {
+      //     $variables['page']['#attached']['html_head'][$count][0]['#attributes']['content'] = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+      //   }
+      //   $count++;
+      // }
+    }
+}

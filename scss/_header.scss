@@ -150,15 +150,53 @@
                         }
                     }
                 }
+                @include respond-to-max('mobile') {
+                    li {
+                        a {
+                            color: white;
+
+                        }
+                        &#site-search {
+                            display: inline-block;
+                            a {
+                                .element-invisible {
+                                    visibility: visible;
+                                    margin: 0;
+                                    clip-path: unset;
+                                    clip: auto;
+                                    height: auto;
+                                    margin-left: 2rem;
+                                    width: 100%;
+                                }
+                                color: white;    
+                            }
+                        }
+                        &:last-child {
+                            width: 100%;
+                            margin-left: 0;
+                            background: white;
+                            a {
+                                color: $maroon;
+                                padding: 0 1rem;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 }
 
 // Override for large screens and aligning breakpoints
-#umass--global--header {
+#umass--global--header,
+#umass--global--footer {
   z-index: 15;
-  #container {
+  #container,
+  .container {
+    a {
+        flex-basis: 40%;
+    }
     // @include respond-to-min('large') {
     //   width: 1400px !important;
     //   max-width: 1400px !important;

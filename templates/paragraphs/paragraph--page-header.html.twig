@@ -17,11 +17,11 @@
     </div>
     {% set header_title = parent.title.value %}
     {% if content.field_header|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-      {% set header_title = content.field_header|render|striptags('<drupal-render-placeholder>')|trim %}
+      {% set header_title = content.field_header %}
     {% elseif parent.field_display_title.value is not empty %}
       {% set header_title = parent.field_display_title.value %}
     {% endif %}
-    <div class="title-wrapper {% if header_title|length > 40 %}long-text{% endif %}">
+    <div class="title-wrapper {% if header_title|render|striptags('<drupal-render-placeholder>')|trim|length > 40 %}long-text{% endif %}">
       <h1>
         {{ header_title }}
       </h1>
