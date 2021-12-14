@@ -644,10 +644,13 @@ a {
 }
 
 #views-exposed-form-site-search-page-1 {
-  padding: 0;
+  padding: 0 85px;
   margin-bottom: 3rem;
   display: flex;
   align-items: flex-end;
+  @include respond-to-max('laptop') {
+    padding: 0;
+  }
   .form-item {
     width: calc(100% - 10rem);
   }
