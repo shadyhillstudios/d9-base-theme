@@ -41,7 +41,7 @@
                         background-color: rgba(230, 230, 230, .1);
                     }
                 }
-                @include respond-to-max('mobile') {
+                @include respond-to-max('laptop') {
                     min-width: 100%;
                 }
             }    
@@ -115,7 +115,7 @@
                 }
             }    
         }
-        @include respond-to-max('mobile') {
+        @include respond-to-max('laptop') {
             flex-wrap: wrap;
             padding: 0 1rem 1rem 1rem;
             .paragraph--wysiwyg,

@@ -323,11 +323,11 @@ a {
   padding: 0 70px;
   .container {
     padding: 0 45px;
-    @include respond-to-max('mobile') {
+    @include respond-to-max('laptop') {
       padding: 0;
     }
   }
-  @include respond-to-max('tablet') {
+  @include respond-to-max('laptop') {
     padding: 0 15px;
   }
 }
