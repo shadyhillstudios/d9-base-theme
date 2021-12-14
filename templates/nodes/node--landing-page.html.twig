@@ -7,7 +7,7 @@
                 {% endif %}
             {% endfor %}
             {% if content.field_paragraph_band|render|striptags('<drupal-render-placeholder>')|trim is empty %}
-                <h1>
+                <h1 class="landing-header">
                   {{ node.label }}
                 </h1>
             {% else %}

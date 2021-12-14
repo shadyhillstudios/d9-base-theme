@@ -322,7 +322,7 @@
 
 .paragraph-related-announcement-band,
 .paragraph-text-block-band {
-    @include paraMargins();
+    @include paraMargins(0rem);
     padding: 0 2rem;
     display: flex;
     align-items: center;
@@ -608,8 +608,9 @@
 .paragraph--link-list-with-details {
     @include paraMargins();
     h3, .h3 {
-        margin-top: 4rem;
-        margin-bottom: 0;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
     }
     .paragraph--link-with-details {
         &:before {
@@ -703,7 +704,7 @@
     a.paragraph-call-to-action {
         background: $maroon;
         color: white;
-        padding: 1rem 2rem;
+        padding: 1.5rem 2rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -740,6 +741,7 @@
             font-weight: 400;
             font-size: 21px;
             z-index: 2;
+            text-shadow: 0 0 5px $gray-1;
             a {
                 text-decoration: none;
                 &:hover, &:active {
@@ -800,6 +802,7 @@
             .paragraph {
                 margin-top: 1rem;
                 margin-bottom: 1rem;
+                padding: 0 1rem;
             }
             @include respond-to-max('mobile') {
                 padding: 1em 0;
@@ -824,7 +827,7 @@
             font-size: 1rem;
             font-weight: normal;
             margin: 0;
-            padding: 1em .75em 1em 0;
+            padding: 1rem;
             position: relative;
             text-align: left;
             width: 100%;
