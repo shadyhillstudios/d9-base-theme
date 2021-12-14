@@ -349,6 +349,15 @@ a {
   }
 }
 
+.filtered-content-node {
+  .content {
+    padding: 0 100px;
+    #block-title-ix-theme-content {
+      margin-top: 2rem;
+    }
+  }
+}
+
 .profile {
   .has-sidebar {
     @include respond-to-max('tablet') {
