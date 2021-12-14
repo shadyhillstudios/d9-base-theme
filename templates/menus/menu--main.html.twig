@@ -26,9 +26,9 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
+{# {{ menus.menu_links(items, attributes, 0) }} #}
 
-{% macro menu_links(items, attributes, menu_level) %}
+{# {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
@@ -50,6 +50,45 @@
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
       </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+ #}
+
+{% set menu_item = items|first %}
+{% set menu_slug = menu_item.title|lower|striptags|replace({' ': '-'}) %}
+{{ menus.menu_links(items, attributes, 0, 0) }}
+
+{% macro menu_links(items, attributes, menu_level, slug) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes }}>
+    {% else %}
+      <ul aria-labelledby="menu-group-{{ slug }}">
+    {% endif %}
+    {% set count = 0 %}
+    {% for item in items %}
+      <li{{ item.attributes }}>
+        <div class="link-block">
+          {% if menu_level == 0 %}
+            <div class="visually-hidden" id="menu-group-{{ count }}">
+              {{ item.title }}
+            </div>
+          {% endif %}
+          {{ link(item.title, item.url) }}
+          {% if item.below %}
+            <div class="link-expand">
+              <i class="fas fa-angle-down" role="presentation"></i>
+            </div>
+          {% endif %}
+        </div>
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1, count) }}
+        {% endif %}
+      </li>
+      {% set count = count + 1 %}
     {% endfor %}
     </ul>
   {% endif %}

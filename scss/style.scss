@@ -370,6 +370,14 @@ a {
   }
 }
 
+#react-shs-filtered-content-content {
+  .name {
+    color: black;
+    &:hover, &:focus {
+      color: black;
+    }
+  }
+}
 
 // Expand / See More Button and Wrapper
 .hidden-wrapper {
@@ -513,15 +521,24 @@ a {
   .sidebar {
     .details {
       .btn {
-        border-color: black;
-        background-color: black;
-        color: white;
-        justify-content: center;
-        margin-bottom: 2rem;
+        border-color: #ccc;
+        border-radius: 0px;
+        background-color: none;
+        font-family: 'Open Sans', sans-serif;
+        letter-spacing: .05em; 
         &:hover, &:focus {
-          color: black;
-          background-color: transparent;
+          background-color: #881c1c;
+          text-color: #FFFFFF;
         }
+        // border-color: black;
+        // background-color: black;
+        // color: white;
+        // justify-content: center;
+        // margin-bottom: 2rem;
+        // &:hover, &:focus {
+        //   color: black;
+        //   background-color: transparent;
+        // }
       }
       & > div {
         margin-bottom: 2rem;
