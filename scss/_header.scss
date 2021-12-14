@@ -48,7 +48,7 @@
                     font-weight: 600;
                     border-bottom: 8px solid transparent;
                     text-decoration: none;
-                    &:hover{
+                    &:hover, &:focus{
                         border-color: $maroon;
                         color: $maroon;
                         text-decoration: none;
@@ -79,7 +79,7 @@
                                     padding: .25em 0;
                                     color: black;
                                     font-size: 1rem;
-                                    &:hover {
+                                    &:hover, &:focus {
                                         color: $maroon;
                                         text-decoration: underline;
                                     }
@@ -88,7 +88,7 @@
                             & > li {
                                 a {
                                     color: black;
-                                    &:hover {
+                                    &:hover, &:focus {
                                         color: $maroon;
                                         text-decoration: underline;
                                     }
@@ -104,7 +104,7 @@
                                 }
                             }
                         }
-                        &:hover{
+                        &:hover, &:focus{
                             & > ul {
                                 display: block;
                             }
@@ -123,7 +123,7 @@
                     padding: 0 .5em;
                     text-decoration: none;
                     color: $maroon;
-                    &:hover{
+                    &:hover, &:focus{
                         color: $maroon;
                         text-decoration: underline;
                     }
@@ -382,7 +382,7 @@
                             &.is-active {
                                 border-color: transparent;
                             }
-                            &:hover {
+                            &:hover, &:focus {
                                 color: white;
                                 text-decoration: underline;
                             }
@@ -407,7 +407,7 @@
                                         }
                                     }
                                 }
-                                &:hover {
+                                &:hover, &:focus {
                                     & > ul {
                                         display: none;
                                     }
