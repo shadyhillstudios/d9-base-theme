@@ -115,9 +115,9 @@
                 }
             }    
         }
-        @include respond-to-max('laptop') {
+        @include respond-to-max('desktop') {
             flex-wrap: wrap;
-            padding: 0 1rem 1rem 1rem;
+            padding: 0 0rem 1rem 0rem;
             .paragraph--wysiwyg,
             .paragraph--contact-card,
             .footer-menu {

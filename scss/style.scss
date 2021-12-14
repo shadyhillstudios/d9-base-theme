@@ -258,7 +258,11 @@ a {
 // }
 .main-content {
   // based off col-md-9, adjust as needed
-  max-width: 75%; 
+  // max-width: 75%;
+  padding: 0 100px; 
+  @include respond-to-max('laptop') {
+    padding: 0 15px;
+  }
   @include respond-to-max('tablet') {
     max-width: unset;
   }
@@ -273,6 +277,10 @@ a {
   margin-right: 100px;
   img {
     width: 100%;
+  }
+  @include respond-to-max('desktop') {
+    width: 175px;
+    margin-right: 20px;
   }
   @include respond-to-max('laptop') {
     margin-right: 50px;
@@ -336,7 +344,7 @@ a {
   .content {
     padding: 0;
   }
-  @include respond-to-max('tablet') {
+  @include respond-to-max('laptop') {
     flex-direction: column-reverse;
     .col {
       flex-basis: unset;
@@ -352,8 +360,18 @@ a {
 .filtered-content-node {
   .content {
     padding: 0 100px;
+    flex-direction: column;
+    .main-content {
+      padding: 0;
+    }
     #block-title-ix-theme-content {
       margin-top: 2rem;
+    }
+    .breadcrumb {
+      margin: 0 -10px;
+    }
+    @include respond-to-max('laptop') {
+      padding: 0 15px;
     }
   }
 }

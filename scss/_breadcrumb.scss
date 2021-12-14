@@ -35,6 +35,9 @@
             }
         }
     }
+    @include respond-to-max('laptop') {
+        margin: 0;
+    }
 }
 
 .breadcrumb-landing-page {

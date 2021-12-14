@@ -10,7 +10,7 @@
     <div {{ attributes.addClass(classes) }}>
       {% if content.field_link|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
         {% set link = link('test', content.field_link['#items'][0].uri) %}
-        <iframe allowfullscreen="" frameborder="0" height="1000px" marginheight="0" marginwidth="0" mozallowfullscreen="" msallowfullscreen="" webkitallowfullscreen="" width="100%" src="{{ link['#url'] }}"></iframe>
+        <iframe allowfullscreen="" frameborder="0" height="2500px" marginheight="0" marginwidth="0" mozallowfullscreen="" msallowfullscreen="" webkitallowfullscreen="" width="100%" src="{{ link['#url'] }}"></iframe>
       {% endif %}
     </div>
 {% endblock %}

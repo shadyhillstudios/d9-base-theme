@@ -6,22 +6,22 @@
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     <div class="layout-content filtered-content-node">
-      <div class="content">
-        <div class="container">
+      <div class="container">
+        <div class="content">
         <div class="row">
           <div class="col">
             {{ drupal_block('system_breadcrumb_block') }}
           </div>
         </div>
         <div class="row">
-              <h1>
-                  {% set display_title = drupal_field('field_display_title', 'node', node.id) %}
-                  {% if display_title|render|trim is not empty %}
-                      {{ display_title }}
-                  {% else %}
-                      {{ node.label }}
-                  {% endif %}
-              </h1>
+          <h1>
+              {% set display_title = drupal_field('field_display_title', 'node', node.id) %}
+              {% if display_title|render|trim is not empty %}
+                  {{ display_title }}
+              {% else %}
+                  {{ node.label }}
+              {% endif %}
+          </h1>
         </div>
         <div class="row has-sidebar">
           <div class="sidebar">
