@@ -180,7 +180,7 @@ img {
 }
 
 // Admin toolbar TODO: Move to Admin module
-#block-title-ix-theme-local-tasks {
+div[id$='-theme-local-tasks']{
   position: fixed;
   left: 0;
   bottom: 0;
@@ -364,7 +364,7 @@ a {
     .main-content {
       padding: 0;
     }
-    #block-title-ix-theme-content {
+    div[id^="block-"][id$="-theme-content"] {
       margin-top: 2rem;
     }
     .breadcrumb {
