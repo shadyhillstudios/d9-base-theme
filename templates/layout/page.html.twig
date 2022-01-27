@@ -41,7 +41,14 @@
  * @ingroup themeable
  */
 #}
-<div class="layout-container">
+
+{% set classes = [
+    'layout-container',
+    node.bundle ? 'page-type-' ~ node.bundle|clean_class
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
 
   {% include directory ~ '/../../custom/d9_base_theme/templates/partials/header.html.twig' %}
 
