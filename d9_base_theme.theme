@@ -41,3 +41,34 @@ function d9_base_theme_preprocess_html(&$variables)
       // }
     }
 }
+
+
+/**
+ * Implements hook_theme().
+ * Manually assign unformatted field loops or simplistic twig files to reduce theme files
+ *
+ */
+function d9_base_theme_theme($existing, $type, $theme, $path) {
+    $unformattedFields = [
+        'template' => 'field--unformatted',
+        'base hook' => 'field',
+        'path' =>  drupal_get_path('theme', 'd9_base_theme') .'/templates/field'
+    ];
+    return [
+        'field__node__title' => $unformattedFields,
+        'field__paragraph__field_header' => $unformattedFields,
+        'field__block_content__field_paragraph_band' => $unformattedFields,
+        'field__block_content__field_paragraph_bands' => $unformattedFields,
+        'field__field_paragraph_bands' => $unformattedFields,
+        'field__node__field_display_title' => $unformattedFields,
+        'field__node__field_restricted_html' => $unformattedFields,
+        'field__paragraph__field_restricted_html' => $unformattedFields,
+        'field__paragraph__field_layout_style' => $unformattedFields,
+        'field__paragraph__field_media_image' => $unformattedFields,
+        'field__paragraph__field_paragraph_bands' => $unformattedFields,
+        'field__paragraph__field_paragraph_couplet' => $unformattedFields,
+        'field__paragraph__field_phone' => $unformattedFields,
+        'field__paragraph__field_restricted_html' => $unformattedFields,
+        'field__paragraph__field_title' => $unformattedFields
+    ];
+}
