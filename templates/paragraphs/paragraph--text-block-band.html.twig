@@ -6,7 +6,6 @@
       'paragraph-' ~ paragraph.bundle|clean_class,
       view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
       'th-' ~ content.field_layout_style|render|striptags('<drupal-render-placeholder>')|trim,
-      'th-' ~ content.field_band_color|render|striptags('<drupal-render-placeholder>')|trim,
       not paragraph.isPublished() ? 'paragraph--unpublished'
     ]
   %}
@@ -19,6 +18,10 @@
       </div>
     {% endif %}
     <div class="anchor-base"></div>
-    {{ content.field_paragraph_bands }}
+    <div class="row">
+      <div class="col tile-wrapper">
+        {{ content.field_paragraph_bands }}
+      </div>
+    </div>
   </div>
 {% endblock paragraph %}

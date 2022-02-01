@@ -1,11 +1,11 @@
 // Using this file instead of installing another module to manage. These should match the theme file
 
 // Element size after nesting
-// $row_xl: 1220px;
-// $row_lg: 920px;
-// $row_md: 810px;
-// $row_sm: 600px;
-// $colgap: 10px;
+$row_xl: 1220px;
+$row_lg: 920px;
+$row_md: 810px;
+$row_sm: 600px;
+$colgap: 10px;
 
 // container overrides, breakpoint - 18 to allow for scroll
 $container_xl: 1410px;
