@@ -69,9 +69,6 @@ function d9_base_theme_theme($existing, $type, $theme, $path) {
         'field__paragraph__field_paragraph_couplet' => $unformattedFields,
         'field__paragraph__field_phone' => $unformattedFields,
         'field__paragraph__field_restricted_html' => $unformattedFields,
-        'field__paragraph__field_title' => $unformattedFields,
-        'field__field_metrics' => $unformattedFields,
-        'field__paragraph__field_profile_references' => $unformattedFields,
-        'field__field_media_videos' => $unformattedFields
+        'field__paragraph__field_title' => $unformattedFields
     ];
 }
