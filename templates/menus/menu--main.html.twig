@@ -72,11 +72,6 @@
     {% for item in items %}
       <li{{ item.attributes }}>
         <div class="link-block">
-          {% if menu_level == 0 %}
-            <div class="visually-hidden" id="menu-group-{{ count }}">
-              {{ item.title }}
-            </div>
-          {% endif %}
           {{ link(item.title, item.url) }}
           {% if item.below %}
             <div class="link-expand">
