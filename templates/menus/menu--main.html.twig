@@ -59,7 +59,7 @@
 {% set menu_item = items|first %}
 {% set menu_slug = menu_item.title|lower|striptags|replace({' ': '-'}) %}
 {{ menus.menu_links(items, attributes, 0, 0) }}
-
+<div id="menu-detect"></div>
 {% macro menu_links(items, attributes, menu_level, slug) %}
   {% import _self as menus %}
   {% if items %}
