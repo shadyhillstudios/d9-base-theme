@@ -64,7 +64,7 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes }}>
+      <ul{{ attributes.addClass('primary') }}>
     {% else %}
       <ul aria-labelledby="menu-group-{{ slug }}">
     {% endif %}
