@@ -45,27 +45,22 @@ img {
 
 .container {
   @include respond-to-min('mobile') {
-    // background: rgba(100,100,0,.1);
     width: 100%;
     max-width: 100%;
   }
   @include respond-to-min('tablet') {
-    // background: rgba(0,100,100,.1);
     width: $container_sm;
     max-width: $container_sm;
   }
   @include respond-to-min('laptop') {
-    // background: rgba(100,0,0,.1);
     width: $container_md;
     max-width: $container_md;
   }
   @include respond-to-min('desktop') {
-    // background: rgba(0,100,0,.1);
     width: $container_lg;
     max-width: $container_lg;
   }
   @include respond-to-min('large') {
-    // background: rgba(0,0,100,.1);
     width: $container_xl;
     max-width: $container_xl;
   }
@@ -217,14 +212,6 @@ div[id$='-local-tasks']{
   a {
     display: flex;
     align-items: center;
-    // &:before{
-    //   content: '';
-    //   display: inline-block;
-    //   width: 5rem;
-    //   height: 5rem;
-    //   margin-right: .5rem;
-    //   // background-image: url('../imgs/necasc-logo-01.svg');
-    // }
   }
 }
 
@@ -235,31 +222,8 @@ a {
   }
 }
 
-
-
-// .site-header {
-//   .container {
-//     max-width: 1200px;
-//   }
-// }
-
-// Specific Color Theme Overrides
-// div[class^="color-theme-"], div[class*=" color-theme-"] {
-//   color: white;
-//   h1, h2, h3, h4, a {
-//     color: white;
-//   }
-//   .btn {
-//     border-color: white;
-//     &:hover {
-//       background: white;
-//       color: black;
-//     }
-//   }
-// }
 .main-content {
   // based off col-md-9, adjust as needed
-  // max-width: 75%;
   padding: 0 100px; 
   @include respond-to-max('laptop') {
     padding: 0 15px;
@@ -314,17 +278,6 @@ a {
         }
       }
     }
-    // @include respond-to-max('tablet') {
-    //   h2 {
-    //     display: flex;
-    //     justify-content: space-between;
-    //     &:after {
-    //       display: block;
-    //       content: "\f067";
-    //       font-family: "Font Awesome 5";
-    //     }
-    //   }
-    // }
   }
 }
 
@@ -354,7 +307,6 @@ a {
       margin-top: 3rem;
       padding: 0 15px;
     }
-    // flex-direction: column-reverse;
   }
 }
 
@@ -406,9 +358,6 @@ a {
     &.expanded {
         .list-item {
             display: flex !important;
-            // &.bibcite-item {
-            //   display: flex !important;
-            // }
         }
     }
 }
@@ -483,11 +432,8 @@ a {
     .wrapper {
       width: 100%;
       margin: 1rem auto;
-      // padding: 1rem 0;
       border-top: thin solid $gray-4;
       border-bottom: thin solid $gray-4;
-      // border-top: 3px solid black;
-      // border-bottom: 3px solid $gray-4;
     }
    @include detailsTable;
   } 
@@ -499,25 +445,12 @@ a {
     margin-bottom: 1em;
   }
   .bibcite-item {
-  //   display: flex;
-  //   // flex-wrap: wrap;
-  //   border-bottom: thin solid $gray-3;
-  //   padding: .5rem 0;
-  //   & > div:first-child {
-  //     flex: 0 0 250px;
-  //   }
-  //   // & > div:last-child {
-  //   //   flex: 1 1 auto;
-  //   // }
     .bibcite_authors {
       flex: 1 1 auto;
       .bibcite_author {
         display: flex;
         justify-content: flex-start;
         .link-group {
-          // margin-left: .5rem;
-          // flex: 1 1 auto;
-          // text-align: right;
           a {
             margin-left: .5em;
             padding-left: .5em;
@@ -527,13 +460,6 @@ a {
       }
     }
   }
-  //   @include respond-to-max('tablet') {
-  //     flex-direction: column;
-  //     & > div:first-child {
-  //       flex-basis: unset;
-  //     }
-  //   }
-  // }
 }
 
 .webinar {
@@ -549,15 +475,6 @@ a {
           background-color: #881c1c;
           text-color: #FFFFFF;
         }
-        // border-color: black;
-        // background-color: black;
-        // color: white;
-        // justify-content: center;
-        // margin-bottom: 2rem;
-        // &:hover, &:focus {
-        //   color: black;
-        //   background-color: transparent;
-        // }
       }
       & > div {
         margin-bottom: 2rem;
@@ -581,7 +498,6 @@ a {
         .speaker {
           display: flex;
           margin: .5rem 0;
-          // flex-wrap: nowrap;
           span {
                 margin-right: .25rem;
               }
@@ -628,7 +544,6 @@ a {
   &.no-image {
     .thumbnail {
         background-color: black;
-        // background-image: url('../imgs/necasc-profile-placeholder-01.svg');
         background-size: 70% 70%;
         background-position: center;
         background-repeat: no-repeat;

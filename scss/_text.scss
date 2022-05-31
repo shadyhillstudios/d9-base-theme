@@ -1,7 +1,6 @@
 @import '_mixins';
 
 h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
-  // font-family: 'Montserrat', sans-serif;
   font-family: 'Lora';
   font-weight: 600;
   color: $gray-2;
@@ -82,11 +81,8 @@ p {
 }
 
 a {
-  // color: $theme-blue-3;
-  // font-family: 'Montserrat', sans-serif;
   text-decoration: underline;
   &:hover, &:focus {
-    // color: $theme-blue-1;
     text-decoration: underline;
   }
 }
