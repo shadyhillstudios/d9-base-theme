@@ -494,6 +494,9 @@
     -webkit-line-clamp: $lines;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    p {
+        margin-bottom: 0;
+    }
 }
 
 @mixin headerH2 {
