@@ -8,7 +8,11 @@
             {% endfor %}
             {% if content.field_paragraph_band|render|striptags('<drupal-render-placeholder>')|trim is empty %}
                 <h1 class="landing-header">
-                  {{ node.label }}
+                    {% if content.field_display_title|render is not empty %}
+                        {{ content.field_display_title }}
+                    {% else %}
+                        {{ node.label }}
+                    {% endif %}
                 </h1>
             {% else %}
                 {{ content.field_paragraph_band }}
