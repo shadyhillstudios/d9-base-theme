@@ -8,7 +8,8 @@
   ]
 %}
 {% set parent = paragraph._referringItem.parent.parent.entity %}
-{% set link = link('test', content.field_link['#items'][0].uri) %}
+{% set link = content.field_link['#items'][0] ? link('test', content.field_link['#items'][0].uri) : null %}
+
 {% block paragraph %}
 <div {{ attributes.addClass(classes) }}>
   <div class="wrapper">
@@ -27,7 +28,7 @@
     <div class="summary">
       {{ content.field_restricted_html }}
     </div>
-    {% if parent.field_layout_style.value|trim != 'anchored' and parent.field_layout_style.value|trim != 'footer' %}
+    {% if parent.field_layout_style.value|trim != 'anchored' and parent.field_layout_style.value|trim != 'footer' and link is not empty %}
       <div class="link-btn">
         <a href="{{ link['#url'] }}" class="btn" {% if content.field_link['#items'][0].options.external %} target="_blank" {% endif %}>
           {% if content.field_link['#items'][0].title|render|striptags('<drupal-render-placeholder>') is not empty %}

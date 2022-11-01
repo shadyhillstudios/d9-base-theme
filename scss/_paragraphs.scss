@@ -1028,12 +1028,12 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 0;
-    margin: 0 1rem;
-    min-width: 402px;
-    &:first-child {
+    margin: .5rem;
+    min-width: calc(50% - 1rem);
+    &:nth-child(2n + 1) {
         margin-left: 0;
     }
-    &:last-child {
+    &:nth-child(2n + 2) {
         margin-right: 0;
     }
     color: black;

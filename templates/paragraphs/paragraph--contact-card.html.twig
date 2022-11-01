@@ -6,6 +6,9 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
+
+{% set link = content.field_link['#items'][0] ? link('test', content.field_link['#items'][0].uri) : null %}
+
 {% block paragraph %}
 <div {{ attributes.addClass(classes) }}>
     {% if content.field_title|render|trim is not empty %}
@@ -43,13 +46,16 @@
           </span>
         </div>
     {% endif %}
-    {% if content.field_link|render|trim is not empty %}
+    {% if link is not empty %}
         <div class="contact-info">
           <span class="label">
             <i class="fa fa-globe"></i>
           </span>
           <span class="value">
-            {{ content.field_link }}
+            <a href="{{ link['#url'] }}" {% if content.field_link['#items'][0].options.external %} target="_blank" {% endif %}>
+              <span class="visually-hidden">{{ content.field_link['#items'][0].title }}</span>
+              View Website
+            </a>
           </span>
         </div>
     {% endif %}
