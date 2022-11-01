@@ -35,6 +35,16 @@
           </span>
         </div>
     {% endif %}
+    {% if content.field_preferred_pronoun|render|trim is not empty %}
+        <div class="contact-info">
+          <span class="label">
+            <i class="fa fa-user"></i>
+          </span>
+          <span class="value">
+            Pronouns:&nbsp;{{ content.field_preferred_pronoun }}
+          </span>
+        </div>
+    {% endif %}
     {{ content.field_paragraph_bands }}
     {% if content.field_email|render|trim is not empty %}
         <div class="contact-info">
