@@ -52,7 +52,7 @@ function d9_base_theme_theme($existing, $type, $theme, $path) {
     $unformattedFields = [
         'template' => 'field--unformatted',
         'base hook' => 'field',
-        'path' =>  drupal_get_path('theme', 'd9_base_theme') .'/templates/field'
+        'path' => \Drupal::service('extension.list.theme')->getPath('d9_base_theme') . '/templates/field'
     ];
     return [
         'field__node__title' => $unformattedFields,
